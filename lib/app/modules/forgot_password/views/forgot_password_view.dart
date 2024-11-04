@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../controllers/forgot_password_controller.dart';
 
-class ForgotScreen extends StatelessWidget {
-  const ForgotScreen({super.key});
+class ForgotPasswordView extends GetView<ForgotPasswordController> {
+  const ForgotPasswordView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,7 @@ class ForgotScreen extends StatelessWidget {
               SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
-                  // Static button action, can leave empty or add navigation.
+                  Get.toNamed('/login');
                 },
                 child: Text(
                   "Send Code",

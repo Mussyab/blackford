@@ -1,9 +1,9 @@
-import 'package:blackford/app/modules/forgot_password/views/forgot_password_view.dart';
-
+import 'package:blackford/app/modules/login/controllers/login_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class LoginView extends GetView<LoginController> {
+  LoginView({super.key});
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -50,12 +50,7 @@ class LoginScreen extends StatelessWidget {
                         alignment: Alignment.bottomRight,
                         child: TextButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ForgotScreen(),
-                              ),
-                            );
+                            Get.toNamed('/forgot-password');
                           },
                           child: Text(
                             "Forgot Password",
@@ -70,7 +65,7 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(height: 40),
                       ElevatedButton(
                         onPressed: () {
-                          // Add your login logic here
+                          Get.toNamed('/login');
                         },
                         child: Text(
                           "Log In",
@@ -100,12 +95,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => sign(),
-                                ),
-                              );
+                              Get.toNamed('/signup');
                             },
                             child: Text(
                               "Sign Up",
