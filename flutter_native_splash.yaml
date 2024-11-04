@@ -1,0 +1,11 @@
+flutter_native_splash:
+    color: "#096684"
+    color_dark: "#096684"
+    image: "assets/images/Logo.png"
+    android_gravity: center
+    ios_content_mode: scaleAspectFit
+
+  android_12:
+    color: "#096684"
+    color_dark: "#096684"
+    image: "assets/images/Logo.png"
