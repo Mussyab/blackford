@@ -32,9 +32,12 @@ class OnboardingView extends GetView<OnboardingController> {
                             fontSize: 20,
                             color: AppColor.white),
                       ),
-                      Text(
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s .",
-                        style: TextStyle(color: AppColor.white, fontSize: 15),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s .",
+                          style: TextStyle(color: AppColor.white, fontSize: 15),
+                        ),
                       ),
                     ],
                   ),
