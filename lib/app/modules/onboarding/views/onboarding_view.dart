@@ -14,76 +14,82 @@ class OnboardingView extends GetView<OnboardingController> {
       body: Column(
         children: [
           Expanded(
-            child: TabBarView(
-              controller: controller.tabController,
-              children: [
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Image(
-                        height: 200,
-                        image: AssetImage('assets/images/Logo.png'),
-                      ),
-                      Text(
-                        "Welcome to Blackford",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: AppColor.white),
-                      ),
-                      Text(
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s .",
-                        style: TextStyle(color: AppColor.white, fontSize: 15),
-                      ),
-                    ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: TabBarView(
+                controller: controller.tabController,
+                children: [
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Image(
+                          height: 200,
+                          image: AssetImage('assets/images/Logo.png'),
+                        ),
+                        Text(
+                          "Welcome to Blackford",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: AppColor.white),
+                        ),
+                        Text(
+                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s .",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: AppColor.white, fontSize: 15),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Image(
-                        height: 200,
-                        image: AssetImage('assets/images/Logo.png'),
-                      ),
-                      Text(
-                        "Welcome to Blackford",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: AppColor.white),
-                      ),
-                      Text(
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s .",
-                        style: TextStyle(color: AppColor.white, fontSize: 15),
-                      ),
-                    ],
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Image(
+                          height: 200,
+                          image: AssetImage('assets/images/Logo.png'),
+                        ),
+                        Text(
+                          "Welcome to Blackford",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: AppColor.white),
+                        ),
+                        Text(
+                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s .",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: AppColor.white, fontSize: 15),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Image(
-                        height: 200,
-                        image: AssetImage('assets/images/Logo.png'),
-                      ),
-                      Text(
-                        "Welcome to Air Blackford",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                            color: AppColor.primarycolor),
-                      ),
-                      Text(
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s .",
-                        style: TextStyle(color: AppColor.white, fontSize: 15),
-                      ),
-                    ],
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Image(
+                          height: 200,
+                          image: AssetImage('assets/images/Logo.png'),
+                        ),
+                        Text(
+                          "Welcome to Air Blackford",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: AppColor.primarycolor),
+                        ),
+                        Text(
+                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s .",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: AppColor.white, fontSize: 15),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           CustomTabPageSelector(controller: controller.tabController),

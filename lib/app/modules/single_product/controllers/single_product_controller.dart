@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
-  var currentBanner = 0.obs;
+class SingleProductController extends GetxController {
+  //TODO: Implement SingleProductController
 
   final count = 0.obs;
   @override
