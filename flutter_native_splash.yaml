@@ -1,8 +1,13 @@
 flutter_native_splash:
   color: "#096684"
   color_dark: "#096684"
-  image: "assets/images/Logo.png"
-  android_gravity: center | fill | top | bottom  # Try using 'fill' for stretching
-  ios_content_mode: scaleAspectFill  # 'scaleAspectFill' will fill the screen with the image
+  image: "assets/images/splash_screen.png"
+  android_gravity: center
+  ios_content_mode: scaleAspectFit
 
+android_12:
+  color: "#096684"
+  color_dark: "#096684"
+  image: "assets/images/splash_screen.png"
 
+# resize your image to this 400x400
