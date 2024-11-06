@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../utilities/colors.dart';
+import 'package:flutter/cupertino.dart';
 
 class LoginView extends StatefulWidget {
   @override
@@ -33,19 +33,28 @@ class _LoginViewState extends State<LoginView> {
                 SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Text(
-                    "Welcome Back 👋",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: AppColor.white,
-                    ),
+                  child: Row(
+                    children: [
+                      Text(
+                        "Welcome Back",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.white,
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Icon(
+                        CupertinoIcons.hand_raised,
+                        color: Color(0xFFFFCF4D),
+                        size: 30,
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 10),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 25), // Added padding for alignment
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Text(
                     "Sign in to your account",
                     style: TextStyle(
@@ -124,9 +133,7 @@ class _LoginViewState extends State<LoginView> {
                               vertical: 20, horizontal: 20),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           suffixIcon: Padding(
-                            padding: const EdgeInsets.only(
-                                right:
-                                    10), // Adjust this value to move it further to the right
+                            padding: const EdgeInsets.only(right: 10),
                             child: IconButton(
                               icon: Icon(
                                 obscurePassword
@@ -169,7 +176,7 @@ class _LoginViewState extends State<LoginView> {
                       SizedBox(height: 30),
                       ElevatedButton(
                         onPressed: () {
-                          Get.toNamed('/login');
+                          Get.toNamed('/home');
                         },
                         child: Text(
                           "Login",
@@ -213,16 +220,43 @@ class _LoginViewState extends State<LoginView> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 40),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Divider(
+                              color: Colors.white,
+                              thickness: 1,
+                              endIndent: 15,
+                            ),
+                          ),
+                          Text(
+                            " Or with ",
+                            style: TextStyle(
+                              color: AppColor.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          Expanded(
+                            child: Divider(
+                              color: Colors.white,
+                              thickness: 1,
+                              indent: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 40),
                       ElevatedButton.icon(
                         onPressed: () {},
                         icon: Image.asset(
                           'assets/images/google-icon.png',
-                          height: 30,
-                          width: 30,
+                          height: 25,
+                          width: 25,
                         ),
                         label: Text(
-                          "Sign in with Google",
+                          " Sign in with Google",
                           style: TextStyle(color: AppColor.white),
                         ),
                         style: ElevatedButton.styleFrom(
@@ -238,12 +272,12 @@ class _LoginViewState extends State<LoginView> {
                       ElevatedButton.icon(
                         onPressed: () {},
                         icon: Image.asset(
-                          'assets/google_logo.png', // Make sure the image is in your assets folder
-                          width: 30, // Set the size of the image
-                          height: 30, // Adjust as needed
+                          'assets/images/apple-icon.png',
+                          height: 25,
+                          width: 25,
                         ),
                         label: Text(
-                          "Sign in with Google",
+                          " Sign in with Apple",
                           style: TextStyle(color: AppColor.white),
                         ),
                         style: ElevatedButton.styleFrom(
@@ -255,6 +289,7 @@ class _LoginViewState extends State<LoginView> {
                           ),
                         ),
                       ),
+                      SizedBox(height: 15),
                     ],
                   ),
                 ),
