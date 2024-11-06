@@ -10,7 +10,6 @@ class Product extends StatelessWidget {
     return Scaffold(
       body: Container(
         width: Get.width,
-        // height: Get.height,
         child: SingleChildScrollView(
           child: ListView.builder(
             shrinkWrap: true,
