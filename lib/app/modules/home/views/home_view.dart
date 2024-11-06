@@ -1,8 +1,6 @@
 import 'package:blackford/app/modules/home/views/product.dart';
 import 'package:blackford/utilities/colors.dart';
-import 'package:blackford/widgets/product_card.dart';
 import 'package:carousel_slider/carousel_slider.dart' as cs;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';

@@ -12,20 +12,23 @@ class Product extends StatelessWidget {
         width: Get.width,
         // height: Get.height,
         child: SingleChildScrollView(
-            child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: 30,
-                physics: const NeverScrollableScrollPhysics(),
-                scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: productCard(
-                      name: "Product $index",
-                      author: "Author $index",
-                      price: "Price $index",
-                      image: "assets/images/Banner.png",
-                      tags: "Tag $index",
-                    )))),
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: 30,
+            physics: const NeverScrollableScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            itemBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: productCard(
+                name: "Product $index",
+                author: "Author $index",
+                price: "Price $index",
+                image: "assets/images/Banner.png",
+                tags: "Tag $index",
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
