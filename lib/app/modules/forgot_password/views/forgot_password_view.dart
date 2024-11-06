@@ -115,7 +115,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                       SizedBox(height: 30),
                       ElevatedButton(
                         onPressed: () {
-                          Get.toNamed('/login');
+                          Get.toNamed('/recovery-screen');
                         },
                         child: Text(
                           "Send Code",
