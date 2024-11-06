@@ -1,98 +1,212 @@
-import 'package:blackford/app/modules/signup/controllers/signup_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../utilities/colors.dart';
 
-class SignupView extends GetView<SignupController> {
-  SignupView({super.key});
+class SignupView extends StatefulWidget {
+  @override
+  _SignupViewState createState() => _SignupViewState();
+}
+
+class _SignupViewState extends State<SignupView> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  bool obscurePassword = true;
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: SingleChildScrollView(
-        child: SafeArea(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(height: 50),
-                Image(
-                  image: AssetImage("assets/images/freed.png"),
-                ),
-                SizedBox(height: 30),
-                Padding(
+    return Scaffold(
+      backgroundColor: AppColor.primarycolor,
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: AppColor.darkskyblue,
+        foregroundColor: AppColor.white,
+        leading: const Icon(Icons.arrow_back),
+      ),
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TextFormField(
-                        decoration: InputDecoration(
-                          labelText: "Enter Name",
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.person),
+                      SizedBox(height: 20),
+                      Text(
+                        "Sign Up",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.white,
                         ),
                       ),
-                      SizedBox(height: 15),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          labelText: "Enter Email",
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.email),
+                      SizedBox(height: 10),
+                      Text(
+                        "Create account and choose favorite menu",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: AppColor.white,
                         ),
                       ),
-                      SizedBox(height: 15),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          labelText: "Enter Number",
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.numbers),
-                        ),
-                      ),
-                      SizedBox(height: 15),
-                      TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          labelText: "Enter Password",
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.lock),
-                          suffixIcon: Icon(Icons.remove_red_eye),
-                        ),
-                      ),
-                      SizedBox(height: 15),
-                      TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          labelText: "Confirm Password",
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(Icons.lock),
-                          suffixIcon: Icon(Icons.remove_red_eye),
-                        ),
-                      ),
-                      SizedBox(height: 40),
-                      ElevatedButton(
-                        onPressed: null, // Button is disabled
+                      SizedBox(height: 30),
+                      // Name Field
+                      Align(
+                        alignment: Alignment.centerLeft,
                         child: Text(
-                          "Sign Up",
+                          "Name",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w200,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Your Name",
+                          labelStyle: TextStyle(
+                            color: Color(0xFFB8B8B8),
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 20, horizontal: 15),
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                        ),
+                        style: TextStyle(
+                          color: AppColor.darkskyblue,
+                        ),
+                        keyboardType: TextInputType.name,
+                      ),
+                      SizedBox(height: 15),
+                      // Email Field
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "Email",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w200,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      TextFormField(
+                        controller: emailController,
+                        decoration: InputDecoration(
+                          labelText: "Your Email",
+                          labelStyle: TextStyle(
+                            color: Color(0xFFB8B8B8),
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 20, horizontal: 15),
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                        ),
+                        style: TextStyle(
+                          color: AppColor.darkskyblue,
+                        ),
+                        keyboardType: TextInputType.emailAddress,
+                      ),
+                      SizedBox(height: 15),
+                      // Password Field
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "Password",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w200,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      TextFormField(
+                        controller: passwordController,
+                        obscureText: obscurePassword,
+                        decoration: InputDecoration(
+                          labelText: "Your Password",
+                          labelStyle: TextStyle(
+                            color: Color(0xFFB8B8B8),
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 20, horizontal: 20),
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                          suffixIcon: Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: IconButton(
+                              icon: Icon(
+                                obscurePassword
+                                    ? Icons.remove_red_eye
+                                    : Icons.remove_red_eye_outlined,
+                                color: AppColor.darkskyblue,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  obscurePassword = !obscurePassword;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                        style: TextStyle(
+                          color: AppColor.darkskyblue,
+                        ),
+                      ),
+                      SizedBox(height: 30),
+                      // Register Button
+                      ElevatedButton(
+                        onPressed: () {
+                          Get.toNamed('/login');
+                        },
+                        child: Text(
+                          "Register",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 0.3,
                           ),
                         ),
                         style: ElevatedButton.styleFrom(
-                          minimumSize: Size.fromHeight(55),
-                          backgroundColor: Color(0xFFEF6969),
+                          minimumSize: Size.fromHeight(60),
+                          backgroundColor: AppColor.yellowish,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(50),
                           ),
                         ),
                       ),
                       SizedBox(height: 20),
+                      // Sign In Row
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Already Have an Account?",
+                            "Have an Account?",
                             style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 15,
+                              color: AppColor.white,
+                              fontSize: 16,
                             ),
                           ),
                           TextButton(
@@ -100,9 +214,9 @@ class SignupView extends GetView<SignupController> {
                               Get.toNamed('/login');
                             },
                             child: Text(
-                              "Create Account",
+                              "Sign In",
                               style: TextStyle(
-                                color: Color(0xFFEf6969),
+                                color: AppColor.white,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -113,8 +227,20 @@ class SignupView extends GetView<SignupController> {
                     ],
                   ),
                 ),
-              ],
-            ),
+              ),
+              // Footer Text
+              Padding(
+                padding: const EdgeInsets.only(right: 60, left: 60, bottom: 50),
+                child: Text(
+                  "By signing up, you agree to our Terms of Service and Privacy Policy.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

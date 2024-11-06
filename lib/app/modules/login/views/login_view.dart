@@ -184,6 +184,7 @@ class _LoginViewState extends State<LoginView> {
                             color: Colors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
+                            letterSpacing: 0.3,
                           ),
                         ),
                         style: ElevatedButton.styleFrom(
