@@ -38,6 +38,7 @@ class OnboardingView extends GetView<OnboardingController> {
                                   fontSize: 20,
                                   color: AppColor.white),
                             ),
+                            SizedBox(height: 15),
                             Text(
                               "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s .",
                               textAlign: TextAlign.center,
@@ -63,6 +64,7 @@ class OnboardingView extends GetView<OnboardingController> {
                                   fontSize: 20,
                                   color: AppColor.white),
                             ),
+                            SizedBox(height: 15),
                             Text(
                               "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s .",
                               textAlign: TextAlign.center,
@@ -86,8 +88,9 @@ class OnboardingView extends GetView<OnboardingController> {
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
-                                  color: AppColor.primarycolor),
+                                  color: AppColor.white),
                             ),
+                            SizedBox(height: 15),
                             Text(
                               "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s .",
                               textAlign: TextAlign.center,
@@ -185,7 +188,8 @@ class OnboardingView extends GetView<OnboardingController> {
               padding: const EdgeInsets.all(16.0),
               child: Obx(
                 () {
-                  double progress = controller.currentIndex.value / 2;
+                  double progress = (controller.currentIndex.value + 1) /
+                      3; // Gradually increase progress
                   return GestureDetector(
                     onTap: () {
                       // Skip onboarding and navigate to login screen
