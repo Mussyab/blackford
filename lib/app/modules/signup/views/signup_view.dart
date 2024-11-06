@@ -52,7 +52,6 @@ class _SignupViewState extends State<SignupView> {
                         ),
                       ),
                       SizedBox(height: 30),
-                      // Name Field
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -87,7 +86,6 @@ class _SignupViewState extends State<SignupView> {
                         keyboardType: TextInputType.name,
                       ),
                       SizedBox(height: 15),
-                      // Email Field
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -123,7 +121,6 @@ class _SignupViewState extends State<SignupView> {
                         keyboardType: TextInputType.emailAddress,
                       ),
                       SizedBox(height: 15),
-                      // Password Field
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -175,7 +172,6 @@ class _SignupViewState extends State<SignupView> {
                         ),
                       ),
                       SizedBox(height: 30),
-                      // Register Button
                       ElevatedButton(
                         onPressed: () {
                           Get.toNamed('/login');
@@ -198,7 +194,6 @@ class _SignupViewState extends State<SignupView> {
                         ),
                       ),
                       SizedBox(height: 20),
-                      // Sign In Row
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -228,7 +223,6 @@ class _SignupViewState extends State<SignupView> {
                   ),
                 ),
               ),
-              // Footer Text
               Padding(
                 padding: const EdgeInsets.only(right: 60, left: 60, bottom: 50),
                 child: Text(
