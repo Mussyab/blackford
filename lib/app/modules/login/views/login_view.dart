@@ -1,21 +1,23 @@
-import 'package:blackford/app/modules/login/controllers/login_controller.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter/cupertino.dart'; // For Cupertino Icons
-
 import '../../../../utilities/colors.dart';
 
-class LoginView extends GetView<LoginController> {
-  LoginView({super.key});
+class LoginView extends StatefulWidget {
+  @override
+  _LoginViewState createState() => _LoginViewState();
+}
 
+class _LoginViewState extends State<LoginView> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  bool obscurePassword = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          AppColor.primarycolor, // Set the background color of the Scaffold
+      backgroundColor: AppColor.primarycolor,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: AppColor.darkskyblue,
@@ -26,31 +28,37 @@ class LoginView extends GetView<LoginController> {
         child: SafeArea(
           child: Center(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 20),
-                Text(
-                  "Welcome Back 👋",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: AppColor.white,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Text(
+                    "Welcome Back 👋",
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: AppColor.white,
+                    ),
                   ),
                 ),
                 SizedBox(height: 10),
-                Text(
-                  "Sign to your account ",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: AppColor.white,
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 25), // Added padding for alignment
+                  child: Text(
+                    "Sign in to your account",
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: AppColor.white,
+                    ),
                   ),
                 ),
-                SizedBox(height: 50),
+                SizedBox(height: 30),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Column(
                     children: [
-                      // Label and Email TextField
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -66,90 +74,128 @@ class LoginView extends GetView<LoginController> {
                       TextFormField(
                         controller: emailController,
                         decoration: InputDecoration(
-                          labelText: "Enter Email",
-                          labelStyle: TextStyle(color: Colors.black),
-                          border: OutlineInputBorder(),
+                          labelText: "Your Email",
+                          labelStyle: TextStyle(
+                            color: Color(0xFFB8B8B8),
+                          ),
                           filled: true,
                           fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 20, horizontal: 15),
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                        ),
+                        style: TextStyle(
+                          color: AppColor.darkskyblue,
                         ),
                         keyboardType: TextInputType.emailAddress,
                       ),
                       SizedBox(height: 15),
-
-                      // Label and Password TextField
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           "Password",
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w200,
                             color: Colors.white,
                           ),
                         ),
                       ),
                       SizedBox(height: 8),
                       TextFormField(
-                        obscureText: true,
                         controller: passwordController,
+                        obscureText: obscurePassword,
                         decoration: InputDecoration(
-                          labelText: "Enter Password",
-                          labelStyle: TextStyle(color: Colors.black),
-                          border: OutlineInputBorder(),
+                          labelText: "Your Password",
+                          labelStyle: TextStyle(
+                            color: Color(0xFFB8B8B8),
+                          ),
                           filled: true,
                           fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 20, horizontal: 20),
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                          suffixIcon: Padding(
+                            padding: const EdgeInsets.only(
+                                right:
+                                    10), // Adjust this value to move it further to the right
+                            child: IconButton(
+                              icon: Icon(
+                                obscurePassword
+                                    ? Icons.remove_red_eye
+                                    : Icons.remove_red_eye_outlined,
+                                color: AppColor.darkskyblue,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  obscurePassword = !obscurePassword;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                        style: TextStyle(
+                          color: AppColor.darkskyblue,
                         ),
                       ),
+                      SizedBox(height: 10),
                       Align(
-                        alignment: Alignment
-                            .centerLeft, // Align Forgot Password to the left
-                        child: TextButton(
-                          onPressed: () {
-                            Get.toNamed('/forgot-password');
-                          },
-                          child: Text(
-                            "Forgot Password",
-                            style: TextStyle(
-                              color: Color(0xFFD83022),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 0),
+                          child: TextButton(
+                            onPressed: () {
+                              Get.toNamed('/forgot-password');
+                            },
+                            child: Text(
+                              "Forgot Password?",
+                              style: TextStyle(
+                                color: AppColor.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(height: 40),
-
-                      // Log In Button
+                      SizedBox(height: 30),
                       ElevatedButton(
                         onPressed: () {
                           Get.toNamed('/login');
                         },
                         child: Text(
-                          "Log In",
+                          "Login",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                         style: ElevatedButton.styleFrom(
-                          minimumSize: Size.fromHeight(55),
-                          backgroundColor: Color(0xFFEF6969),
+                          minimumSize: Size.fromHeight(60),
+                          backgroundColor: AppColor.yellowish,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(50),
                           ),
                         ),
                       ),
                       SizedBox(height: 20),
-
-                      // Row for Sign Up Text
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             "Don't Have an Account?",
                             style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 15,
+                              color: AppColor.white,
+                              fontSize: 16,
                             ),
                           ),
                           TextButton(
@@ -159,7 +205,7 @@ class LoginView extends GetView<LoginController> {
                             child: Text(
                               "Sign Up",
                               style: TextStyle(
-                                color: Color(0xFFD83022),
+                                color: AppColor.white,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -168,50 +214,44 @@ class LoginView extends GetView<LoginController> {
                         ],
                       ),
                       SizedBox(height: 20),
-
-                      // Sign in with Google Button (Cupertino Icon)
                       ElevatedButton.icon(
-                        onPressed: () {
-                          // Implement Google Sign-In functionality here
-                        },
-                        icon: Icon(
-                          CupertinoIcons.app, // Using Cupertino Google icon
-                          color: Colors.black,
+                        onPressed: () {},
+                        icon: Image.asset(
+                          'assets/images/google-icon.png',
+                          height: 30,
+                          width: 30,
                         ),
                         label: Text(
-                          "Sign In with Google",
-                          style: TextStyle(color: Colors.black),
+                          "Sign in with Google",
+                          style: TextStyle(color: AppColor.white),
                         ),
                         style: ElevatedButton.styleFrom(
-                          minimumSize: Size.fromHeight(55),
-                          backgroundColor: Colors.transparent,
-                          side: BorderSide(color: Colors.black),
+                          minimumSize: Size.fromHeight(60),
+                          backgroundColor: AppColor.primarycolor,
+                          side: BorderSide(color: AppColor.white),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(50),
                           ),
                         ),
                       ),
                       SizedBox(height: 15),
-
-                      // Sign in with Apple Button (Cupertino Icon)
                       ElevatedButton.icon(
-                        onPressed: () {
-                          // Implement Apple Sign-In functionality here
-                        },
-                        icon: Icon(
-                          CupertinoIcons.app, // Using Cupertino Apple icon
-                          color: Colors.black,
+                        onPressed: () {},
+                        icon: Image.asset(
+                          'assets/google_logo.png', // Make sure the image is in your assets folder
+                          width: 30, // Set the size of the image
+                          height: 30, // Adjust as needed
                         ),
                         label: Text(
-                          "Sign In with Apple",
-                          style: TextStyle(color: Colors.black),
+                          "Sign in with Google",
+                          style: TextStyle(color: AppColor.white),
                         ),
                         style: ElevatedButton.styleFrom(
-                          minimumSize: Size.fromHeight(55),
-                          backgroundColor: Colors.transparent,
-                          side: BorderSide(color: Colors.black),
+                          minimumSize: Size.fromHeight(60),
+                          backgroundColor: AppColor.primarycolor,
+                          side: BorderSide(color: AppColor.white),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(50),
                           ),
                         ),
                       ),
