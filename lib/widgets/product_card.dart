@@ -60,7 +60,7 @@ Widget productCard({
             ),
             Spacer(),
             SizedBox(
-              height: 30,
+              height: 25,
               child: ListView.builder(
                 itemCount: tags.length,
                 shrinkWrap: true,
@@ -68,19 +68,24 @@ Widget productCard({
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, tagIndex) => Container(
                   margin: EdgeInsets.only(right: 8),
-                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+                  alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 146, 98, 25),
+                    color: Color(0xFF665230),
                     borderRadius: BorderRadius.circular(20.0),
                   ),
-                  child: Text(
-                    tags[tagIndex],
-                    style: TextStyle(
-                      color: Color(0xFFD5AC64),
-                      fontSize: 10,
-                      fontWeight: FontWeight.w500,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
                     ),
-                    textAlign: TextAlign.center,
+                    child: Text(
+                      tags[tagIndex],
+                      style: TextStyle(
+                        color: Color(0xFFD5AC64),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ),

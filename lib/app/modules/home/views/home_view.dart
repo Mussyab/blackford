@@ -101,7 +101,8 @@ class HomeView extends GetView<HomeController> {
                     child: Column(
                       children: [
                         TabBar(
-                          //controller: tabController,
+                          // indicatorSize: TabBarIndicatorSize.label,
+                          labelPadding: EdgeInsets.symmetric(horizontal: 0),
                           indicatorColor: AppColor.yellowish,
                           labelColor: AppColor.yellowish,
                           unselectedLabelColor: AppColor.white,
