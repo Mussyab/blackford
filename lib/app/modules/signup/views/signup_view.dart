@@ -21,7 +21,6 @@ class _SignupViewState extends State<SignupView> {
         centerTitle: true,
         backgroundColor: AppColor.darkskyblue,
         foregroundColor: AppColor.white,
-        leading: const Icon(Icons.arrow_back),
       ),
       body: SafeArea(
         child: Center(
@@ -77,7 +76,7 @@ class _SignupViewState extends State<SignupView> {
                             borderSide: BorderSide.none,
                           ),
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 15),
+                              vertical: 16, horizontal: 15),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                         ),
                         style: TextStyle(
@@ -112,7 +111,7 @@ class _SignupViewState extends State<SignupView> {
                             borderSide: BorderSide.none,
                           ),
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 15),
+                              vertical: 16, horizontal: 15),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                         ),
                         style: TextStyle(
@@ -148,15 +147,15 @@ class _SignupViewState extends State<SignupView> {
                             borderSide: BorderSide.none,
                           ),
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 20),
+                              vertical: 16, horizontal: 20),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           suffixIcon: Padding(
                             padding: const EdgeInsets.only(right: 10),
                             child: IconButton(
                               icon: Icon(
                                 obscurePassword
-                                    ? Icons.remove_red_eye
-                                    : Icons.remove_red_eye_outlined,
+                                    ? Icons.remove_red_eye_outlined
+                                    : Icons.remove_red_eye,
                                 color: AppColor.darkskyblue,
                               ),
                               onPressed: () {
@@ -180,7 +179,7 @@ class _SignupViewState extends State<SignupView> {
                           "Register",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
+                            fontSize: 16,
                             fontWeight: FontWeight.w600,
                             letterSpacing: 0.3,
                           ),
@@ -201,7 +200,7 @@ class _SignupViewState extends State<SignupView> {
                             "Have an Account?",
                             style: TextStyle(
                               color: AppColor.white,
-                              fontSize: 16,
+                              fontSize: 15,
                             ),
                           ),
                           TextButton(
@@ -212,7 +211,7 @@ class _SignupViewState extends State<SignupView> {
                               "Sign In",
                               style: TextStyle(
                                 color: AppColor.white,
-                                fontSize: 16,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),

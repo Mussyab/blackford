@@ -18,7 +18,7 @@ class OnboardingView extends GetView<OnboardingController> {
             children: [
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: TabBarView(
                     controller: controller.tabController,
                     children: [
@@ -181,18 +181,15 @@ class OnboardingView extends GetView<OnboardingController> {
               ),
             ],
           ),
-          // Skip button with circle progress, now aligned to the right
           Align(
-            alignment: Alignment.topRight, // Align to the top-right corner
+            alignment: Alignment.topRight,
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.only(top: 65, right: 20),
               child: Obx(
                 () {
-                  double progress = (controller.currentIndex.value + 1) /
-                      3; // Gradually increase progress
+                  double progress = (controller.currentIndex.value + 1) / 3;
                   return GestureDetector(
                     onTap: () {
-                      // Skip onboarding and navigate to login screen
                       Get.toNamed('/login');
                     },
                     child: Container(
@@ -216,7 +213,7 @@ class OnboardingView extends GetView<OnboardingController> {
                             strokeWidth: 3,
                           ),
                           Icon(
-                            CupertinoIcons.forward, // Cupertino forward icon
+                            CupertinoIcons.forward,
                             color: AppColor.white,
                             size: 20,
                           ),

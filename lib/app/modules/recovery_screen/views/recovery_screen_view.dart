@@ -27,7 +27,6 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
         centerTitle: true,
         backgroundColor: AppColor.darkskyblue,
         foregroundColor: AppColor.white,
-        leading: const Icon(Icons.arrow_back),
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -99,7 +98,7 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
                             borderSide: BorderSide.none,
                           ),
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 15),
+                              vertical: 16, horizontal: 15),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                         ),
                         style: TextStyle(
@@ -134,15 +133,15 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
                             borderSide: BorderSide.none,
                           ),
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 20),
+                              vertical: 16, horizontal: 20),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           suffixIcon: Padding(
                             padding: const EdgeInsets.only(right: 10),
                             child: IconButton(
                               icon: Icon(
                                 obscurePassword
-                                    ? Icons.remove_red_eye
-                                    : Icons.remove_red_eye_outlined,
+                                    ? Icons.remove_red_eye_outlined
+                                    : Icons.remove_red_eye,
                                 color: AppColor.darkskyblue,
                               ),
                               onPressed: () {
@@ -185,15 +184,15 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
                             borderSide: BorderSide.none,
                           ),
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 20),
+                              vertical: 16, horizontal: 20),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           suffixIcon: Padding(
                             padding: const EdgeInsets.only(right: 10),
                             child: IconButton(
                               icon: Icon(
                                 obscureConfirmPassword
-                                    ? Icons.remove_red_eye
-                                    : Icons.remove_red_eye_outlined,
+                                    ? Icons.remove_red_eye_outlined
+                                    : Icons.remove_red_eye,
                                 color: AppColor.darkskyblue,
                               ),
                               onPressed: () {
@@ -218,7 +217,7 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
                           "Reset Password",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
+                            fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -230,7 +229,7 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 30),
+                      SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -238,7 +237,7 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
                             "Remembered your password?",
                             style: TextStyle(
                               color: AppColor.white,
-                              fontSize: 16,
+                              fontSize: 15,
                             ),
                           ),
                           TextButton(
@@ -249,7 +248,7 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
                               "Login",
                               style: TextStyle(
                                 color: AppColor.white,
-                                fontSize: 16,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),

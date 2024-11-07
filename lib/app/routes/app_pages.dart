@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/about_author/bindings/about_author_binding.dart';
 import '../modules/about_author/views/about_author_view.dart';
+import '../modules/bottom_nav/bindings/bottom_nav_binding.dart';
+import '../modules/bottom_nav/views/bottom_nav_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
 import '../modules/forgot_password/views/forgot_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -22,7 +24,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.ABOUT_AUTHOR;
+  static const INITIAL = Routes.ONBOARDING;
 
   static final routes = [
     GetPage(
@@ -30,6 +32,11 @@ class AppPages {
       page: () => HomeView(),
       binding: HomeBinding(),
     ),
+    // GetPage(
+    //   name: _Paths.NAVIGATION_BAR,
+    //   page: () => LandingPage(),
+    //   binding: HomeBinding(),
+    // ),
     GetPage(
       name: _Paths.ONBOARDING,
       page: () => const OnboardingView(),
@@ -64,6 +71,11 @@ class AppPages {
       name: _Paths.ABOUT_AUTHOR,
       page: () => const AboutAuthorView(),
       binding: AboutAuthorBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOTTOM_NAV,
+      page: () => BottomNavView(),
+      binding: BottomNavBinding(),
     ),
   ];
 }

@@ -29,7 +29,6 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
         centerTitle: true,
         backgroundColor: AppColor.darkskyblue,
         foregroundColor: AppColor.white,
-        leading: const Icon(Icons.arrow_back),
       ),
       body: SafeArea(
         child: Center(
@@ -86,7 +85,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                             borderSide: BorderSide.none,
                           ),
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 20),
+                              vertical: 16, horizontal: 20),
                           suffixIcon: isTextPresent
                               ? Padding(
                                   padding: const EdgeInsets.only(right: 10),
@@ -121,7 +120,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                           "Send Code",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
+                            fontSize: 16,
                             fontWeight: FontWeight.w600,
                             letterSpacing: 0.3,
                           ),

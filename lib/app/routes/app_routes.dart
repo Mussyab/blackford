@@ -12,6 +12,7 @@ abstract class Routes {
   static const RECOVERY_SCREEN = _Paths.RECOVERY_SCREEN;
   static const NAVIGATION_BAR = _Paths.NAVIGATION_BAR;
   static const ABOUT_AUTHOR = _Paths.ABOUT_AUTHOR;
+  static const BOTTOM_NAV = _Paths.BOTTOM_NAV;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const RECOVERY_SCREEN = '/recovery-screen';
   static const NAVIGATION_BAR = '/navigation-bar';
   static const ABOUT_AUTHOR = '/about-author';
+  static const BOTTOM_NAV = '/bottom-nav';
 }

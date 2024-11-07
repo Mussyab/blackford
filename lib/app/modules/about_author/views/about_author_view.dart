@@ -11,92 +11,106 @@ class AboutAuthorView extends GetView<AboutAuthorController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.primarycolor, // Background color
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(200), // Height of the AppBar
-        child: AppBar(
-          title: const Text(
-            'About Author',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
-          ),
-          centerTitle: true,
-          backgroundColor: AppColor.darkskyblue,
-          foregroundColor: AppColor.white,
-          leading: const Icon(Icons.arrow_back), // Search icon
-          elevation: 0, // Remove shadow
-          bottom: PreferredSize(
-            preferredSize:
-                Size.fromHeight(100), // Space for the image in the AppBar
-            child: Column(
-              children: [
-                CircleAvatar(
-                  radius: 50, // The radius of the circle image
-                  backgroundImage: AssetImage(
-                      'assets/images/Banner.png'), // Correct image path
-                  backgroundColor: AppColor.white,
-                ),
-              ],
-            ),
+      backgroundColor: AppColor.primarycolor,
+      appBar: AppBar(
+        title: const Text(
+          'About Author',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
           ),
         ),
+        centerTitle: true,
+        backgroundColor: AppColor.darkskyblue,
+        foregroundColor: AppColor.white,
+        elevation: 0,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25.0),
-        child: ListView(
-          children: [
-            const SizedBox(
-                height: 80), // To create space for the image and AppBar
-            const Text(
-              'Author',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            const Text(
-              'This is a description of the author, including their background, achievements, and other relevant details. This paragraph should give the user an understanding of who the author is and what they stand for. You can customize this paragraph with more information.',
-              style: TextStyle(fontSize: 16),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Additional Information',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            const Text(
-              'This paragraph will include some extra details about the author. It will be displayed with padding from the left and right, ensuring that the content is properly spaced and aligned.',
-              style: TextStyle(fontSize: 16),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 20),
-            // Rating stars and rating text below the text
-            const Text(
-              'Rating',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            RatingBarIndicator(
-              rating: 4.0, // Example rating
-              itemBuilder: (context, index) => const Icon(
-                Icons.star,
-                color: Colors.amber,
+      body: Stack(
+        children: [
+          Column(
+            children: [
+              Container(
+                color: AppColor.darkskyblue,
+                height: 120,
+                width: double.infinity,
               ),
-              itemCount: 5,
-              itemSize: 20,
-              direction: Axis.horizontal,
-            ),
-            const SizedBox(height: 4),
-            const Text(
-              '(4.0)', // Rating in brackets
-              style: TextStyle(
-                fontSize: 12,
-                color: AppColor.white,
+              const SizedBox(height: 80), // Space for image and appBar
+              const Text(
+                'Author',
+                style: TextStyle(fontSize: 18),
+              ),
+              const SizedBox(height: 6),
+              const Text(
+                'Bill Blackford',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RatingBarIndicator(
+                    rating: 4.0,
+                    itemBuilder: (context, index) => const Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    itemCount: 5,
+                    itemSize: 30,
+                    direction: Axis.horizontal,
+                  ),
+                  const SizedBox(height: 4),
+                  const Text(
+                    '(4.0)',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: AppColor.white,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 30),
+              const Text(
+                'About',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: const Text(
+                  'Bill Blackford, the author of It Aint Just About Planes, reflects on a life marked by profound struggles and significant triumphs. Born in the small town of Geneseo, Illinois, Blackford\'s early years were defined by hardship and an overwhelming sense of not belonging.\n\nDespite enduring emotional and physical challenges in his family life, he found solace and direction in his love for aviation. His journey from a troubled childhood to becoming a successful aviator is a testament to his resilience and determination.',
+                  style: TextStyle(fontSize: 14),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ],
+          ),
+          // Positioned image with Align to make it responsive
+          Align(
+            alignment: Alignment.topCenter, // Align to the top center
+            child: Padding(
+              padding:
+                  const EdgeInsets.only(top: 60), // Adjust this value if needed
+              child: Container(
+                height: 120,
+                width: 120,
+                decoration: BoxDecoration(
+                  color: AppColor.yellowish,
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: Image.asset(
+                    'assets/images/Arthur.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

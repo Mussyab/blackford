@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'package:get/get.dart';
 
@@ -13,75 +15,265 @@ class SingleProductView extends GetView<SingleProductController> {
       backgroundColor: Color(0xFFB5D1DA),
       body: DraggableScrollableSheet(
         initialChildSize: 0.9,
-        minChildSize: 0.5,
+        minChildSize: 0.9,
         maxChildSize: 0.9,
+        shouldCloseOnMinExtent: true,
         builder: (context, scrollController) {
           return Container(
-              clipBehavior: Clip.hardEdge,
-              decoration: BoxDecoration(
-                color: AppColor.darkskyblue,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
-                ),
+            // height: Get.height * 0.5,
+            // width: Get.width,
+            clipBehavior: Clip.hardEdge,
+            decoration: BoxDecoration(
+              color: AppColor.primarycolor,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
               ),
-              child: SingleChildScrollView(
-                controller: scrollController,
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 25),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              height: 6,
-                              width: 55,
-                              decoration: BoxDecoration(
-                                color: Colors.black26,
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 100,
-                        width: double.infinity,
-                        decoration: const BoxDecoration(
-                          // color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(30),
-                            topRight: Radius.circular(30),
+            ),
+            child: SingleChildScrollView(
+              // controller: scrollController,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 10, bottom: 25),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 6,
+                          width: 55,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30),
                           ),
                         ),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                      ],
+                    ),
+                  ),
+                  Container(
+                    // height: 100,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      // color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 20, left: 15, right: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            "assets/images/Product.png",
+                          ),
+                          Text(
+                            "It Ain’t Just About Planes",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: AppColor.white,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "Bill’s journey from a troubled childhood to a successful career in aviation shows how resilience and persistence can lead to success despite the odds.",
+                            style: TextStyle(fontSize: 15, color: Colors.white),
+                            maxLines: 5,
+                            overflow: TextOverflow.ellipsis,
+                            textAlign: TextAlign.left,
+                            softWrap: true,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
                             children: [
-                              Padding(
-                                padding: EdgeInsets.only(top: 20, left: 20),
-                                child: Text(
-                                  "Blackford",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
+                              RatingBarIndicator(
+                                rating: 4.0, // Example rating
+                                itemBuilder: (context, index) => const Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                itemCount: 5,
+                                itemSize: 20,
+                                direction: Axis.horizontal,
+                              ),
+                              const SizedBox(width: 4),
+                              const Text(
+                                '(4.0)', // Rating in brackets
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: AppColor.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 20),
+                          Text(
+                            "About Author: ",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                            ),
+                            maxLines: 5,
+                            overflow: TextOverflow.ellipsis,
+                            textAlign: TextAlign.left,
+                            softWrap: true,
+                          ),
+                          GestureDetector(
+                            onTap: () => Get.toNamed("/about-author"),
+                            child: Text(
+                              'Read More',
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.combine(
+                                      [TextDecoration.underline]),
+                                  decorationStyle: TextDecorationStyle.solid,
+                                  decorationColor: Colors.white),
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                          Row(
+                            children: [
+                              Container(
+                                height: 40,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  color: AppColor.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Container(
+                                      height: 25,
+                                      width: 25,
+                                      decoration: BoxDecoration(
+                                          color: Colors.grey[200],
+                                          borderRadius:
+                                              BorderRadius.circular(30)),
+                                      child: Icon(
+                                        CupertinoIcons.minus,
+                                        color: Colors.grey,
+                                        size: 15,
+                                      ),
+                                    ),
+                                    Text(
+                                      "1",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 25,
+                                      width: 25,
+                                      decoration: BoxDecoration(
+                                          color: AppColor.darkskyblue,
+                                          borderRadius:
+                                              BorderRadius.circular(30)),
+                                      child: Icon(
+                                        CupertinoIcons.plus,
+                                        color: Colors.white,
+                                        size: 15,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                "\$33.99",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 30),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 200,
+                                height: 50,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    Get.offAllNamed('/bottom-nav');
+                                  },
+                                  child: Text(
+                                    "Continue Shopping",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w600,
+                                      letterSpacing: 0.3,
+                                    ),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                    minimumSize: Size.fromHeight(60),
+                                    backgroundColor: AppColor.yellowish,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(50),
+                                    ),
                                   ),
                                 ),
                               ),
-                              Padding(
-                                  padding: EdgeInsets.only(left: 20),
+                              SizedBox(width: 10),
+                              SizedBox(
+                                width: 120,
+                                height: 50,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    Get.offAllNamed('/bottom-nav');
+                                  },
                                   child: Text(
-                                    "Product Name",
+                                    "View Cart",
                                     style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black45),
-                                  )),
-                            ]),
-                      )
-                    ]),
-              ));
+                                      color: AppColor.darkskyblue,
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w600,
+                                      letterSpacing: 0.3,
+                                    ),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                    minimumSize: Size.fromHeight(60),
+                                    backgroundColor: AppColor.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(50),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 50),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
         },
       ),
     );

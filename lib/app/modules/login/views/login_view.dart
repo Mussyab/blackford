@@ -94,7 +94,7 @@ class _LoginViewState extends State<LoginView> {
                             borderSide: BorderSide.none,
                           ),
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 15),
+                              vertical: 16, horizontal: 15),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                         ),
                         style: TextStyle(
@@ -130,15 +130,15 @@ class _LoginViewState extends State<LoginView> {
                             borderSide: BorderSide.none,
                           ),
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 20),
+                              vertical: 16, horizontal: 20),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           suffixIcon: Padding(
                             padding: const EdgeInsets.only(right: 10),
                             child: IconButton(
                               icon: Icon(
                                 obscurePassword
-                                    ? Icons.remove_red_eye
-                                    : Icons.remove_red_eye_outlined,
+                                    ? Icons.remove_red_eye_outlined
+                                    : Icons.remove_red_eye,
                                 color: AppColor.darkskyblue,
                               ),
                               onPressed: () {
@@ -153,9 +153,8 @@ class _LoginViewState extends State<LoginView> {
                           color: AppColor.darkskyblue,
                         ),
                       ),
-                      SizedBox(height: 10),
                       Align(
-                        alignment: Alignment.centerLeft,
+                        alignment: Alignment.topLeft,
                         child: Padding(
                           padding: const EdgeInsets.only(left: 0),
                           child: TextButton(
@@ -166,23 +165,23 @@ class _LoginViewState extends State<LoginView> {
                               "Forgot Password?",
                               style: TextStyle(
                                 color: AppColor.white,
-                                fontSize: 16,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(height: 30),
+                      SizedBox(height: 20),
                       ElevatedButton(
                         onPressed: () {
-                          Get.toNamed('/home');
+                          Get.offAllNamed('/bottom-nav');
                         },
                         child: Text(
                           "Login",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
+                            fontSize: 16,
                             fontWeight: FontWeight.w600,
                             letterSpacing: 0.3,
                           ),
@@ -195,7 +194,7 @@ class _LoginViewState extends State<LoginView> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -203,7 +202,7 @@ class _LoginViewState extends State<LoginView> {
                             "Don't Have an Account?",
                             style: TextStyle(
                               color: AppColor.white,
-                              fontSize: 16,
+                              fontSize: 15,
                             ),
                           ),
                           TextButton(
@@ -214,14 +213,14 @@ class _LoginViewState extends State<LoginView> {
                               "Sign Up",
                               style: TextStyle(
                                 color: AppColor.white,
-                                fontSize: 16,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 40),
+                      SizedBox(height: 20),
                       Row(
                         children: [
                           Expanded(
@@ -251,8 +250,10 @@ class _LoginViewState extends State<LoginView> {
                       SizedBox(height: 40),
                       ElevatedButton.icon(
                         onPressed: () {},
-                        icon: Image.asset(
-                          'assets/images/google-icon.png',
+                        icon:
+                            //  Icon(Icons.g_mobiledata, color: AppColor.white),
+                            Image.asset(
+                          './assets/images/google-icon.png',
                           height: 25,
                           width: 25,
                         ),
@@ -272,7 +273,10 @@ class _LoginViewState extends State<LoginView> {
                       SizedBox(height: 15),
                       ElevatedButton.icon(
                         onPressed: () {},
-                        icon: Image.asset(
+                        icon:
+                            // Icon(CupertinoIcons.signature,
+                            // color: AppColor.white),
+                            Image.asset(
                           'assets/images/apple-icon.png',
                           height: 25,
                           width: 25,
