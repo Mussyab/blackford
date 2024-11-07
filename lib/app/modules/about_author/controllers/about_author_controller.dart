@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class NavigationBarController extends GetxController {
-  //TODO: Implement NavigationBarController
+class AboutAuthorController extends GetxController {
+  //TODO: Implement AboutAuthorController
 
   final count = 0.obs;
   @override

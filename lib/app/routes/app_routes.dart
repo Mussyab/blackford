@@ -1,6 +1,4 @@
-// lib/app/routes/app_routes.dart
 part of 'app_pages.dart';
-
 // DO NOT EDIT. This is code generated via package:get_cli/get_cli.dart
 
 abstract class Routes {
@@ -13,6 +11,7 @@ abstract class Routes {
   static const SINGLE_PRODUCT = _Paths.SINGLE_PRODUCT;
   static const RECOVERY_SCREEN = _Paths.RECOVERY_SCREEN;
   static const NAVIGATION_BAR = _Paths.NAVIGATION_BAR;
+  static const ABOUT_AUTHOR = _Paths.ABOUT_AUTHOR;
 }
 
 abstract class _Paths {
@@ -25,4 +24,5 @@ abstract class _Paths {
   static const SINGLE_PRODUCT = '/single-product';
   static const RECOVERY_SCREEN = '/recovery-screen';
   static const NAVIGATION_BAR = '/navigation-bar';
+  static const ABOUT_AUTHOR = '/about-author';
 }
