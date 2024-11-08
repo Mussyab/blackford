@@ -16,7 +16,7 @@ class _CartViewState extends State<CartView> {
       "name": "The Great Gatsby",
       "author": "F. Scott Fitzgerald",
       "price": "\$10.99",
-      "image": "assets/images/Book-1.png",
+      "image": "assets/images/Book-3.png",
       "quantity": 1,
       "selected": true,
       "tags": ["Design", "User Interface"],
@@ -25,6 +25,15 @@ class _CartViewState extends State<CartView> {
       "name": "Becoming",
       "author": "Michelle Obama",
       "price": "\$19.99",
+      "image": "assets/images/Book-1.png",
+      "quantity": 1,
+      "selected": true,
+      "tags": ["Design", "User Interface"],
+    },
+    {
+      "name": "Atomic Habits",
+      "author": "James Clear",
+      "price": "\$15.99",
       "image": "assets/images/Book-3.png",
       "quantity": 1,
       "selected": true,
@@ -35,6 +44,24 @@ class _CartViewState extends State<CartView> {
       "author": "James Clear",
       "price": "\$15.99",
       "image": "assets/images/Book-2.png",
+      "quantity": 1,
+      "selected": true,
+      "tags": ["Design", "User Interface"],
+    },
+    {
+      "name": "Atomic Habits",
+      "author": "James Clear",
+      "price": "\$15.99",
+      "image": "assets/images/Book-1.png",
+      "quantity": 1,
+      "selected": true,
+      "tags": ["Design", "User Interface"],
+    },
+    {
+      "name": "Atomic Habits",
+      "author": "James Clear",
+      "price": "\$15.99",
+      "image": "assets/images/Book-3.png",
       "quantity": 1,
       "selected": true,
       "tags": ["Design", "User Interface"],
@@ -113,6 +140,7 @@ class _CartViewState extends State<CartView> {
                             toggleItemSelection(index);
                           },
                         ),
+                        SizedBox(width: 15),
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Container(
@@ -244,7 +272,7 @@ class _CartViewState extends State<CartView> {
                 ),
               ],
             ),
-            Divider(height: 20, thickness: 1, color: Colors.black),
+            Divider(height: 20, thickness: 1, color: AppColor.white),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
