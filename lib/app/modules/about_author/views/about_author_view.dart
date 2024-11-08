@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart'; // Rating package
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import '../../../../utilities/colors.dart';
 import '../controllers/about_author_controller.dart';
@@ -34,7 +34,7 @@ class AboutAuthorView extends GetView<AboutAuthorController> {
                 height: 120,
                 width: double.infinity,
               ),
-              const SizedBox(height: 80), // Space for image and appBar
+              const SizedBox(height: 80),
               const Text(
                 'Author',
                 style: TextStyle(fontSize: 18),
@@ -87,12 +87,10 @@ class AboutAuthorView extends GetView<AboutAuthorController> {
               ),
             ],
           ),
-          // Positioned image with Align to make it responsive
           Align(
-            alignment: Alignment.topCenter, // Align to the top center
+            alignment: Alignment.topCenter,
             child: Padding(
-              padding:
-                  const EdgeInsets.only(top: 60), // Adjust this value if needed
+              padding: const EdgeInsets.only(top: 60),
               child: Container(
                 height: 120,
                 width: 120,

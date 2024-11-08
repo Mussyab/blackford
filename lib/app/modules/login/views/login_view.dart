@@ -207,7 +207,7 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           TextButton(
                             onPressed: () {
-                              Get.toNamed('/signup');
+                              Get.toNamed('/cart');
                             },
                             child: Text(
                               "Sign Up",

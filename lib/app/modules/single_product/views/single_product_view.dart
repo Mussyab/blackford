@@ -20,8 +20,6 @@ class SingleProductView extends GetView<SingleProductController> {
         shouldCloseOnMinExtent: true,
         builder: (context, scrollController) {
           return Container(
-            // height: Get.height * 0.5,
-            // width: Get.width,
             clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
               color: AppColor.primarycolor,
@@ -31,7 +29,6 @@ class SingleProductView extends GetView<SingleProductController> {
               ),
             ),
             child: SingleChildScrollView(
-              // controller: scrollController,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -52,10 +49,8 @@ class SingleProductView extends GetView<SingleProductController> {
                     ),
                   ),
                   Container(
-                    // height: 100,
                     width: double.infinity,
                     decoration: const BoxDecoration(
-                      // color: Colors.white,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(30),
                         topRight: Radius.circular(30),
@@ -94,7 +89,7 @@ class SingleProductView extends GetView<SingleProductController> {
                           Row(
                             children: [
                               RatingBarIndicator(
-                                rating: 4.0, // Example rating
+                                rating: 4.0,
                                 itemBuilder: (context, index) => const Icon(
                                   Icons.star,
                                   color: Colors.amber,
@@ -105,7 +100,7 @@ class SingleProductView extends GetView<SingleProductController> {
                               ),
                               const SizedBox(width: 4),
                               const Text(
-                                '(4.0)', // Rating in brackets
+                                '(4.0)',
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: AppColor.white,

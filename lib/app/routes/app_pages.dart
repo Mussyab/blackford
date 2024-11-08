@@ -4,6 +4,8 @@ import '../modules/about_author/bindings/about_author_binding.dart';
 import '../modules/about_author/views/about_author_view.dart';
 import '../modules/bottom_nav/bindings/bottom_nav_binding.dart';
 import '../modules/bottom_nav/views/bottom_nav_view.dart';
+import '../modules/cart/bindings/cart_binding.dart';
+import '../modules/cart/views/cart_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
 import '../modules/forgot_password/views/forgot_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -32,11 +34,6 @@ class AppPages {
       page: () => HomeView(),
       binding: HomeBinding(),
     ),
-    // GetPage(
-    //   name: _Paths.NAVIGATION_BAR,
-    //   page: () => LandingPage(),
-    //   binding: HomeBinding(),
-    // ),
     GetPage(
       name: _Paths.ONBOARDING,
       page: () => const OnboardingView(),
@@ -76,6 +73,11 @@ class AppPages {
       name: _Paths.BOTTOM_NAV,
       page: () => BottomNavView(),
       binding: BottomNavBinding(),
+    ),
+    GetPage(
+      name: _Paths.CART,
+      page: () => CartView(),
+      binding: CartBinding(),
     ),
   ];
 }
