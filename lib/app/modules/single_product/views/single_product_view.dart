@@ -33,7 +33,7 @@ class SingleProductView extends GetView<SingleProductController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(top: 10, bottom: 25),
+                    padding: EdgeInsets.symmetric(vertical: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -57,13 +57,14 @@ class SingleProductView extends GetView<SingleProductController> {
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.only(top: 20, left: 15, right: 10),
+                      padding: EdgeInsets.symmetric(horizontal: 25),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Image.asset(
                             "assets/images/Product.png",
                           ),
+                          SizedBox(height: 20),
                           Text(
                             "It Ain’t Just About Planes",
                             style: TextStyle(
@@ -72,9 +73,7 @@ class SingleProductView extends GetView<SingleProductController> {
                               color: AppColor.white,
                             ),
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
+                          SizedBox(height: 10),
                           Text(
                             "Bill’s journey from a troubled childhood to a successful career in aviation shows how resilience and persistence can lead to success despite the odds.",
                             style: TextStyle(fontSize: 15, color: Colors.white),
@@ -207,53 +206,53 @@ class SingleProductView extends GetView<SingleProductController> {
                           SizedBox(height: 30),
                           Row(
                             children: [
-                              SizedBox(
-                                width: 200,
-                                height: 50,
-                                child: ElevatedButton(
-                                  onPressed: () {
-                                    Get.offAllNamed('/bottom-nav');
-                                  },
-                                  child: Text(
-                                    "Continue Shopping",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w600,
-                                      letterSpacing: 0.3,
+                              Expanded(
+                                child: SizedBox(
+                                  height: 50,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Get.toNamed('/home');
+                                    },
+                                    child: Text(
+                                      "Continue Shopping",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        letterSpacing: 0.3,
+                                      ),
                                     ),
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                    minimumSize: Size.fromHeight(60),
-                                    backgroundColor: AppColor.yellowish,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(50),
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: AppColor.yellowish,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(50),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                               SizedBox(width: 10),
-                              SizedBox(
-                                width: 120,
-                                height: 50,
-                                child: ElevatedButton(
-                                  onPressed: () {
-                                    Get.offAllNamed('/bottom-nav');
-                                  },
-                                  child: Text(
-                                    "View Cart",
-                                    style: TextStyle(
-                                      color: AppColor.darkskyblue,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w600,
-                                      letterSpacing: 0.3,
+                              Expanded(
+                                child: SizedBox(
+                                  height: 50,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Get.toNamed('/cart');
+                                    },
+                                    child: Text(
+                                      "View Cart",
+                                      style: TextStyle(
+                                        color: AppColor.darkskyblue,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        letterSpacing: 0.3,
+                                      ),
                                     ),
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                    minimumSize: Size.fromHeight(60),
-                                    backgroundColor: AppColor.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(50),
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: AppColor.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(50),
+                                      ),
                                     ),
                                   ),
                                 ),

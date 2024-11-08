@@ -66,7 +66,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.ABOUT_AUTHOR,
-      page: () => const AboutAuthorView(),
+      page: () => AboutAuthorView(),
       binding: AboutAuthorBinding(),
     ),
     GetPage(

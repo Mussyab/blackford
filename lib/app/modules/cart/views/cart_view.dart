@@ -118,9 +118,10 @@ class _CartViewState extends State<CartView> {
         leading: const Icon(Icons.arrow_back),
       ),
       body: Padding(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.symmetric(horizontal: 25),
         child: Column(
           children: [
+            SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
                 itemCount: cartItems.length,
