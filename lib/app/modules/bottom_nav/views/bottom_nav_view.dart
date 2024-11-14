@@ -2,9 +2,12 @@ import 'package:blackford/app/modules/account/views/account_view.dart';
 import 'package:blackford/app/modules/bottom_nav/controllers/bottom_nav_controller.dart';
 import 'package:blackford/app/modules/cart/views/cart_view.dart';
 import 'package:blackford/app/modules/home/views/home_view.dart';
+import 'package:blackford/app/modules/search_product/views/search_product_view.dart';
 import 'package:blackford/utilities/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../checkout/views/checkout_view.dart';
 
 class BottomNavView extends GetView<BottomNavController> {
   final TextStyle unselectedLabelStyle = TextStyle(
@@ -95,7 +98,7 @@ class BottomNavView extends GetView<BottomNavController> {
             index: controller.tabIndex.value,
             children: [
               HomeView(),
-              HomeView(),
+              SearchProductView(),
               CartView(),
               AccountView(),
             ],

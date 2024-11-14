@@ -95,12 +95,12 @@ class AccountView extends GetView<AccountController> {
                 SizedBox(height: 8),
                 GestureDetector(
                   onTap: () {
-                    // Get.toNamed('/cards');
+                    Get.toNamed('/checkout');
                   },
                   child: Row(
                     children: [
                       Text(
-                        'Payment Methods',
+                        'Checkout',
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w700),
                       ),

@@ -18,6 +18,8 @@ abstract class Routes {
   static const PRIVACY_POLICY = _Paths.PRIVACY_POLICY;
   static const TERMS_OF_SERVICE = _Paths.TERMS_OF_SERVICE;
   static const SETTING = _Paths.SETTING;
+  static const CHECKOUT = _Paths.CHECKOUT;
+  static const SEARCH_PRODUCT = _Paths.SEARCH_PRODUCT;
 }
 
 abstract class _Paths {
@@ -37,4 +39,6 @@ abstract class _Paths {
   static const PRIVACY_POLICY = '/privacy-policy';
   static const TERMS_OF_SERVICE = '/terms-of-service';
   static const SETTING = '/setting';
+  static const CHECKOUT = '/checkout';
+  static const SEARCH_PRODUCT = '/search-product';
 }
