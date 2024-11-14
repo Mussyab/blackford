@@ -250,9 +250,7 @@ class _LoginViewState extends State<LoginView> {
                       SizedBox(height: 40),
                       ElevatedButton.icon(
                         onPressed: () {},
-                        icon:
-                            //  Icon(Icons.g_mobiledata, color: AppColor.white),
-                            Image.asset(
+                        icon: Image.asset(
                           './assets/images/google-icon.png',
                           height: 25,
                           width: 25,
@@ -273,10 +271,7 @@ class _LoginViewState extends State<LoginView> {
                       SizedBox(height: 15),
                       ElevatedButton.icon(
                         onPressed: () {},
-                        icon:
-                            // Icon(CupertinoIcons.signature,
-                            // color: AppColor.white),
-                            Image.asset(
+                        icon: Image.asset(
                           'assets/images/apple-icon.png',
                           height: 25,
                           width: 25,
