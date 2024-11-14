@@ -130,7 +130,9 @@ class _LoginViewState extends State<LoginView> {
                             borderSide: BorderSide.none,
                           ),
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: 16, horizontal: 20),
+                            vertical: 16,
+                            horizontal: 20,
+                          ),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           suffixIcon: Padding(
                             padding: const EdgeInsets.only(right: 10),
