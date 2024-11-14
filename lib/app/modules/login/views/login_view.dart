@@ -65,7 +65,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 SizedBox(height: 30),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  padding: EdgeInsets.symmetric(horizontal: 25),
                   child: Column(
                     children: [
                       Align(

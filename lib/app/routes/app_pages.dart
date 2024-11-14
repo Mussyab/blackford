@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/about_author/bindings/about_author_binding.dart';
 import '../modules/about_author/views/about_author_view.dart';
+import '../modules/account/bindings/account_binding.dart';
+import '../modules/account/views/account_view.dart';
 import '../modules/bottom_nav/bindings/bottom_nav_binding.dart';
 import '../modules/bottom_nav/views/bottom_nav_view.dart';
 import '../modules/cart/bindings/cart_binding.dart';
@@ -14,12 +16,18 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
+import '../modules/privacy_policy/bindings/privacy_policy_binding.dart';
+import '../modules/privacy_policy/views/privacy_policy_view.dart';
 import '../modules/recovery_screen/bindings/recovery_screen_binding.dart';
 import '../modules/recovery_screen/views/recovery_screen_view.dart';
+import '../modules/setting/bindings/setting_binding.dart';
+import '../modules/setting/views/setting_view.dart';
 import '../modules/signup/bindings/signup_binding.dart';
 import '../modules/signup/views/signup_view.dart';
 import '../modules/single_product/bindings/single_product_binding.dart';
 import '../modules/single_product/views/single_product_view.dart';
+import '../modules/terms_of_service/bindings/terms_of_service_binding.dart';
+import '../modules/terms_of_service/views/terms_of_service_view.dart';
 
 part 'app_routes.dart';
 
@@ -78,6 +86,26 @@ class AppPages {
       name: _Paths.CART,
       page: () => CartView(),
       binding: CartBinding(),
+    ),
+    GetPage(
+      name: _Paths.ACCOUNT,
+      page: () => const AccountView(),
+      binding: AccountBinding(),
+    ),
+    GetPage(
+      name: _Paths.PRIVACY_POLICY,
+      page: () => PrivacyPolicyView(),
+      binding: PrivacyPolicyBinding(),
+    ),
+    GetPage(
+      name: _Paths.TERMS_OF_SERVICE,
+      page: () => const TermsOfServiceView(),
+      binding: TermsOfServiceBinding(),
+    ),
+    GetPage(
+      name: _Paths.SETTING,
+      page: () => SettingView(),
+      binding: SettingBinding(),
     ),
   ];
 }

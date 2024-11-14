@@ -1,4 +1,6 @@
+import 'package:blackford/app/modules/account/views/account_view.dart';
 import 'package:blackford/app/modules/bottom_nav/controllers/bottom_nav_controller.dart';
+import 'package:blackford/app/modules/cart/views/cart_view.dart';
 import 'package:blackford/app/modules/home/views/home_view.dart';
 import 'package:blackford/utilities/colors.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,8 @@ class BottomNavView extends GetView<BottomNavController> {
       TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 12);
 
   buildBottomNavigationMenu(context, controller) {
-    return Obx(() => MediaQuery(
+    return Obx(
+      () => MediaQuery(
         data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
         child: SizedBox(
           height: 60,
@@ -75,7 +78,9 @@ class BottomNavView extends GetView<BottomNavController> {
               ),
             ],
           ),
-        )));
+        ),
+      ),
+    );
   }
 
   @override
@@ -83,21 +88,20 @@ class BottomNavView extends GetView<BottomNavController> {
     // final LandingPageController landingPageController =
     //     Get.put(LandingPageController(), permanent: false);
     return SafeArea(
-        child: Scaffold(
-      bottomNavigationBar: buildBottomNavigationMenu(context, controller),
-      body: Obx(() => IndexedStack(
+      child: Scaffold(
+        bottomNavigationBar: buildBottomNavigationMenu(context, controller),
+        body: Obx(
+          () => IndexedStack(
             index: controller.tabIndex.value,
             children: [
               HomeView(),
               HomeView(),
-              HomeView(),
-              HomeView(),
-
-              // ExplorePage(),
-              // PlacesPage(),
-              // SettingsPage(),
+              CartView(),
+              AccountView(),
             ],
-          )),
-    ));
+          ),
+        ),
+      ),
+    );
   }
 }
