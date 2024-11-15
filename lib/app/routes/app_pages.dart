@@ -20,12 +20,12 @@ import '../modules/onboarding/bindings/onboarding_binding.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
 import '../modules/privacy_policy/bindings/privacy_policy_binding.dart';
 import '../modules/privacy_policy/views/privacy_policy_view.dart';
+import '../modules/profile/bindings/profile_binding.dart';
+import '../modules/profile/views/profile_view.dart';
 import '../modules/recovery_screen/bindings/recovery_screen_binding.dart';
 import '../modules/recovery_screen/views/recovery_screen_view.dart';
 import '../modules/search_product/bindings/search_product_binding.dart';
 import '../modules/search_product/views/search_product_view.dart';
-import '../modules/setting/bindings/setting_binding.dart';
-import '../modules/setting/views/setting_view.dart';
 import '../modules/signup/bindings/signup_binding.dart';
 import '../modules/signup/views/signup_view.dart';
 import '../modules/single_product/bindings/single_product_binding.dart';
@@ -107,11 +107,6 @@ class AppPages {
       binding: TermsOfServiceBinding(),
     ),
     GetPage(
-      name: _Paths.SETTING,
-      page: () => SettingView(),
-      binding: SettingBinding(),
-    ),
-    GetPage(
       name: _Paths.CHECKOUT,
       page: () => const CheckoutView(),
       binding: CheckoutBinding(),
@@ -120,6 +115,11 @@ class AppPages {
       name: _Paths.SEARCH_PRODUCT,
       page: () => const SearchProductView(),
       binding: SearchProductBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => const ProfileView(),
+      binding: ProfileBinding(),
     ),
   ];
 }

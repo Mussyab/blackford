@@ -7,8 +7,6 @@ import 'package:blackford/utilities/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../checkout/views/checkout_view.dart';
-
 class BottomNavView extends GetView<BottomNavController> {
   final TextStyle unselectedLabelStyle = TextStyle(
       color: Colors.white.withOpacity(0.5),

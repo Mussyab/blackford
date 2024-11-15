@@ -9,7 +9,6 @@ class HomeView extends GetView<HomeController> {
   HomeView({super.key});
 
   final HomeController homeController = Get.put(HomeController());
-  // final tabController = TabController(length: 3, );
   final items = [
     "assets/images/banner.png",
     "assets/images/banner.png",
@@ -40,7 +39,6 @@ class HomeView extends GetView<HomeController> {
           ],
         ),
         body: ListView(
-          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             cs.CarouselSlider.builder(
               options: cs.CarouselOptions(
@@ -123,18 +121,6 @@ class HomeView extends GetView<HomeController> {
                               Product(),
                               Product(),
                               Product(),
-                              // productCard(
-                              //   image: "assets/images/Banner.png",
-                              //   price: "Place Your Heading Title Here",
-                              //   author: "Tim Brown",
-                              //   name: "39.99",
-                              // ),
-                              // productCard(
-                              //   image: "assets/images/Banner.png",
-                              //   price: "Place Your Heading Title Here",
-                              //   author: "Tim Brown",
-                              //   name: "39.99",
-                              // ),
                             ],
                           ),
                         ),

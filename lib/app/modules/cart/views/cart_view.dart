@@ -118,17 +118,16 @@ class _CartViewState extends State<CartView> {
         leading: const Icon(Icons.arrow_back),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
         child: Column(
           children: [
-            SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
                 itemCount: cartItems.length,
                 itemBuilder: (context, index) {
                   final item = cartItems[index];
                   return Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
+                    padding: EdgeInsets.only(bottom: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -141,7 +140,7 @@ class _CartViewState extends State<CartView> {
                             toggleItemSelection(index);
                           },
                         ),
-                        SizedBox(width: 15),
+                        SizedBox(width: 5),
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Container(
@@ -153,7 +152,7 @@ class _CartViewState extends State<CartView> {
                             ),
                           ),
                         ),
-                        SizedBox(width: 20),
+                        SizedBox(width: 10),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -187,66 +186,77 @@ class _CartViewState extends State<CartView> {
                                 ),
                               ),
                               SizedBox(height: 12),
-                              SizedBox(
-                                height: 25,
-                                child: ListView.builder(
-                                  itemCount: item["tags"]?.length ?? 0,
-                                  shrinkWrap: true,
-                                  padding: EdgeInsets.zero,
-                                  scrollDirection: Axis.horizontal,
-                                  itemBuilder: (context, tagIndex) => Container(
-                                    margin: EdgeInsets.only(right: 8),
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFF665230),
-                                      borderRadius: BorderRadius.circular(20.0),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 10),
-                                      child: Text(
-                                        item["tags"]?[tagIndex] ?? "",
-                                        style: TextStyle(
-                                          color: Color(0xFFD5AC64),
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500,
+                              Container(
+                                height: 30,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  color: AppColor.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                  shape: BoxShape.rectangle,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () => decrementQuantity(index),
+                                      child: Container(
+                                        height: 20,
+                                        width: 20,
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey[200],
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                         ),
-                                        textAlign: TextAlign.center,
+                                        child: Icon(
+                                          CupertinoIcons.minus,
+                                          color: Colors.grey,
+                                          size: 15,
+                                        ),
                                       ),
                                     ),
-                                  ),
+                                    Text(
+                                      "${item['quantity']}",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () => incrementQuantity(index),
+                                      child: Container(
+                                        height: 20,
+                                        width: 20,
+                                        decoration: BoxDecoration(
+                                          color: AppColor.darkskyblue,
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                        ),
+                                        child: Icon(
+                                          CupertinoIcons.plus,
+                                          color: Colors.white,
+                                          size: 15,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        Row(
-                          children: [
-                            IconButton(
-                              icon: Icon(
-                                CupertinoIcons.minus,
-                                color: AppColor.brown,
-                                size: 18,
-                              ),
-                              onPressed: () => decrementQuantity(index),
-                            ),
-                            Text(
-                              "${item['quantity']}",
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: AppColor.white,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                            IconButton(
-                              icon: Icon(
-                                CupertinoIcons.plus,
-                                color: AppColor.brown,
-                                size: 18,
-                              ),
-                              onPressed: () => incrementQuantity(index),
-                            ),
-                          ],
+                        IconButton(
+                          icon: Icon(
+                            CupertinoIcons.delete,
+                            color: AppColor.white,
+                            size: 20,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              cartItems.removeAt(index);
+                            });
+                          },
                         ),
                       ],
                     ),
@@ -254,7 +264,7 @@ class _CartViewState extends State<CartView> {
                 },
               ),
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
