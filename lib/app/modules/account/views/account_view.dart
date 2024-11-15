@@ -21,7 +21,6 @@ class AccountView extends GetView<AccountController> {
         centerTitle: true,
         backgroundColor: AppColor.darkskyblue,
         foregroundColor: AppColor.white,
-        leading: Icon(Icons.arrow_back),
       ),
       body: Padding(
         padding: EdgeInsets.all(25),
@@ -88,7 +87,7 @@ class AccountView extends GetView<AccountController> {
                 SizedBox(height: 8),
                 GestureDetector(
                   onTap: () {
-                    Get.toNamed('/checkout');
+                    // Get.toNamed('/checkout');
                   },
                   child: Row(
                     children: [

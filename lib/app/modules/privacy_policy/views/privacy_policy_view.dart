@@ -20,7 +20,6 @@ class PrivacyPolicyView extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.darkskyblue,
         foregroundColor: AppColor.white,
-        leading: Icon(Icons.arrow_back),
       ),
       body: SingleChildScrollView(
         child: Padding(

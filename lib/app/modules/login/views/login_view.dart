@@ -22,7 +22,6 @@ class _LoginViewState extends State<LoginView> {
         centerTitle: true,
         backgroundColor: AppColor.darkskyblue,
         foregroundColor: AppColor.white,
-        leading: const Icon(Icons.arrow_back),
       ),
       body: SingleChildScrollView(
         child: SafeArea(

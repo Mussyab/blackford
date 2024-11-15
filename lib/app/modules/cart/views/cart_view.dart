@@ -115,7 +115,6 @@ class _CartViewState extends State<CartView> {
         centerTitle: true,
         backgroundColor: AppColor.darkskyblue,
         foregroundColor: AppColor.white,
-        leading: const Icon(Icons.arrow_back),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),

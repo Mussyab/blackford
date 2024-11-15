@@ -20,7 +20,6 @@ class TermsOfServiceView extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.darkskyblue,
         foregroundColor: AppColor.white,
-        leading: Icon(Icons.arrow_back),
       ),
       body: const SingleChildScrollView(
         child: Padding(

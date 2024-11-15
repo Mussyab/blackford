@@ -21,7 +21,6 @@ class ProfileView extends GetView<ProfileController> {
         centerTitle: true,
         backgroundColor: AppColor.darkskyblue,
         foregroundColor: AppColor.white,
-        leading: Icon(Icons.arrow_back),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
