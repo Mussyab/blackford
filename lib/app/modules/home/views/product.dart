@@ -90,7 +90,6 @@ class Product extends StatelessWidget {
           shrinkWrap: true,
           itemCount: products.length,
           physics: const NeverScrollableScrollPhysics(),
-          // scrollDirection: Axis.vertical,
           itemBuilder: (context, index) => Padding(
             padding: const EdgeInsets.only(bottom: 20),
             child: GestureDetector(

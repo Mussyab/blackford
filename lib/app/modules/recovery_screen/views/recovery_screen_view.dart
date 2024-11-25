@@ -79,7 +79,7 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w200,
-                            color: Colors.white,
+                            color: AppColor.white,
                           ),
                         ),
                       ),
@@ -92,7 +92,7 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
                             color: Color(0xFFB8B8B8),
                           ),
                           filled: true,
-                          fillColor: Colors.white,
+                          fillColor: AppColor.white,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none,
@@ -113,7 +113,7 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w200,
-                            color: Colors.white,
+                            color: AppColor.white,
                           ),
                         ),
                       ),
@@ -127,7 +127,7 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
                             color: Color(0xFFB8B8B8),
                           ),
                           filled: true,
-                          fillColor: Colors.white,
+                          fillColor: AppColor.white,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none,
@@ -164,7 +164,7 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w200,
-                            color: Colors.white,
+                            color: AppColor.white,
                           ),
                         ),
                       ),
@@ -178,7 +178,7 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
                             color: Color(0xFFB8B8B8),
                           ),
                           filled: true,
-                          fillColor: Colors.white,
+                          fillColor: AppColor.white,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none,
@@ -216,7 +216,7 @@ class _RecoveryScreenViewState extends State<RecoveryScreenView> {
                         child: Text(
                           "Reset Password",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: AppColor.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),

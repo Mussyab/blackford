@@ -58,7 +58,7 @@ class _SignupViewState extends State<SignupView> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w200,
-                            color: Colors.white,
+                            color: AppColor.white,
                           ),
                         ),
                       ),
@@ -70,7 +70,7 @@ class _SignupViewState extends State<SignupView> {
                             color: Color(0xFFB8B8B8),
                           ),
                           filled: true,
-                          fillColor: Colors.white,
+                          fillColor: AppColor.white,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none,
@@ -92,7 +92,7 @@ class _SignupViewState extends State<SignupView> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w200,
-                            color: Colors.white,
+                            color: AppColor.white,
                           ),
                         ),
                       ),
@@ -105,7 +105,7 @@ class _SignupViewState extends State<SignupView> {
                             color: Color(0xFFB8B8B8),
                           ),
                           filled: true,
-                          fillColor: Colors.white,
+                          fillColor: AppColor.white,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none,
@@ -127,7 +127,7 @@ class _SignupViewState extends State<SignupView> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w200,
-                            color: Colors.white,
+                            color: AppColor.white,
                           ),
                         ),
                       ),
@@ -141,7 +141,7 @@ class _SignupViewState extends State<SignupView> {
                             color: Color(0xFFB8B8B8),
                           ),
                           filled: true,
-                          fillColor: Colors.white,
+                          fillColor: AppColor.white,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none,
@@ -178,7 +178,7 @@ class _SignupViewState extends State<SignupView> {
                         child: Text(
                           "Register",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: AppColor.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                             letterSpacing: 0.3,
@@ -228,7 +228,7 @@ class _SignupViewState extends State<SignupView> {
                   "By signing up, you agree to our Terms of Service and Privacy Policy.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: AppColor.white,
                     fontSize: 14,
                   ),
                 ),

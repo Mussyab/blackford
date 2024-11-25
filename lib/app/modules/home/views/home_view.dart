@@ -67,8 +67,8 @@ class HomeView extends GetView<HomeController> {
                   onTap: () => controller.currentBanner.value = entry.key,
                   child: Obx(() {
                     return Container(
-                      width: 5.0,
-                      height: 5.0,
+                      width: 8.0,
+                      height: 8.0,
                       margin: const EdgeInsets.symmetric(
                           vertical: 6.0, horizontal: 1.0),
                       decoration: BoxDecoration(

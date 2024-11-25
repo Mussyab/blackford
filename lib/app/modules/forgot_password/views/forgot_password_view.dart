@@ -66,7 +66,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w200,
-                            color: Colors.white,
+                            color: AppColor.white,
                           ),
                         ),
                       ),
@@ -79,7 +79,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                             color: Color(0xFFB8B8B8),
                           ),
                           filled: true,
-                          fillColor: Colors.white,
+                          fillColor: AppColor.white,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none,
@@ -119,7 +119,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                         child: Text(
                           "Send Code",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: AppColor.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                             letterSpacing: 0.3,
