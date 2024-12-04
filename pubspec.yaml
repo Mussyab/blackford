@@ -38,9 +38,10 @@ dependencies:
   get: ^4.6.6
   shared_preferences: ^2.3.2
   flutter_native_splash: ^2.4.2
-  google_fonts: ^6.2.1
+  google_fonts: 
   carousel_slider: ^5.0.0
   flutter_rating_bar: ^4.0.1
+  flutter_wp_woocommerce: ^1.0.0
 
 dev_dependencies:
   flutter_test:

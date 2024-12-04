@@ -1,14 +1,10 @@
+import 'package:blackford/app/modules/login/controllers/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../utilities/colors.dart';
 import 'package:flutter/cupertino.dart';
 
-class LoginView extends StatefulWidget {
-  @override
-  _LoginViewState createState() => _LoginViewState();
-}
-
-class _LoginViewState extends State<LoginView> {
+class LoginView extends GetView<LoginController> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -143,9 +139,7 @@ class _LoginViewState extends State<LoginView> {
                                 color: AppColor.darkskyblue,
                               ),
                               onPressed: () {
-                                setState(() {
-                                  obscurePassword = !obscurePassword;
-                                });
+                                obscurePassword = !obscurePassword;
                               },
                             ),
                           ),
