@@ -1,3 +1,4 @@
+import 'package:blackford/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../utilities/colors.dart';
@@ -8,6 +9,7 @@ class AccountView extends GetView<AccountController> {
 
   @override
   Widget build(BuildContext context) {
+    final dynamic homeController = Get.find<HomeController>().retrievedData;
     return Scaffold(
       backgroundColor: AppColor.primarycolor,
       appBar: AppBar(
@@ -34,21 +36,27 @@ class AccountView extends GetView<AccountController> {
                     children: <Widget>[
                       CircleAvatar(
                         radius: 60,
-                        backgroundImage: AssetImage('assets/images/image2.jpg')
-                            as ImageProvider,
                         backgroundColor: Colors.transparent,
+                        child: Container(child: Image.asset('assets/images/Logo.png', fit: BoxFit.cover,),),
                       ),
                     ],
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 10),
+
             Text(
-              'John Doe',
+              homeController['username'],
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
+                color: AppColor.white,
+              ),
+            ),
+            Text(
+              homeController['email'],
+              style: TextStyle(
+                fontSize: 14,
                 color: AppColor.white,
               ),
             ),

@@ -33,8 +33,10 @@ class HomeView extends GetView<HomeController> {
           leading: const Icon(Icons.search),
           actions: [
             IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.notifications),
+              onPressed: () {
+                controller.logUserOut();
+              },
+              icon: const Icon(Icons.logout),
             ),
           ],
         ),

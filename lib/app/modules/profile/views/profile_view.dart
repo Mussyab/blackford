@@ -1,3 +1,4 @@
+import 'package:blackford/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../utilities/colors.dart';
@@ -8,6 +9,7 @@ class ProfileView extends GetView<ProfileController> {
 
   @override
   Widget build(BuildContext context) {
+    final dynamic homeController = Get.find<HomeController>().retrievedData;
     return Scaffold(
       backgroundColor: AppColor.primarycolor,
       appBar: AppBar(
@@ -50,7 +52,7 @@ class ProfileView extends GetView<ProfileController> {
             SizedBox(height: 8),
             TextFormField(
               decoration: InputDecoration(
-                labelText: "John Doe",
+                labelText: homeController['username'],
                 enabled: false,
                 labelStyle: TextStyle(color: Color(0xFFB8B8B8)),
                 filled: true,
@@ -66,36 +68,6 @@ class ProfileView extends GetView<ProfileController> {
               style: TextStyle(color: AppColor.darkskyblue),
             ),
             SizedBox(height: 20),
-
-            // Date of Birth Field
-            Text(
-              'Date of Birth',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w200,
-                color: Colors.white,
-              ),
-            ),
-            SizedBox(height: 8),
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: "01/01/2000",
-                labelStyle: TextStyle(color: Color(0xFFB8B8B8)),
-                filled: true,
-                enabled: false,
-                fillColor: Colors.white,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide.none,
-                ),
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 16, horizontal: 15),
-                floatingLabelBehavior: FloatingLabelBehavior.never,
-              ),
-              style: TextStyle(color: AppColor.darkskyblue),
-            ),
-            SizedBox(height: 20),
-
             // Password Field with Change Option
             Text(
               'Password',
@@ -111,7 +83,7 @@ class ProfileView extends GetView<ProfileController> {
                 TextFormField(
                   obscureText: true,
                   decoration: InputDecoration(
-                    labelText: "*******",
+                    labelText: "********",
                     labelStyle: TextStyle(color: Color(0xFFB8B8B8)),
                     filled: true,
                     enabled: false,
@@ -150,97 +122,105 @@ class ProfileView extends GetView<ProfileController> {
                                   ),
                                 ),
                                 SizedBox(height: 20),
-
-                                // Old Password Field
                                 TextFormField(
+                                  controller: controller.oldPasswordController,
                                   obscureText: true,
                                   decoration: InputDecoration(
-                                    labelText: "Enter Old Password",
-                                    labelStyle:
-                                        TextStyle(color: Color(0xFFB8B8B8)),
+                                    labelText: 'Enter old Password',
+                                    border: InputBorder.none,
                                     filled: true,
-                                    fillColor: Colors.white,
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                      borderSide: BorderSide.none,
-                                    ),
-                                    contentPadding: EdgeInsets.symmetric(
-                                        vertical: 16, horizontal: 15),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.never,
+                                    fillColor: Colors.grey[100],
                                   ),
-                                  style: TextStyle(color: AppColor.darkskyblue),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Old password is required';
+                                    }
+                                    return null;
+                                  },
                                 ),
-                                SizedBox(height: 20),
-
-                                // New Password Field
+                                const SizedBox(height: 25),
                                 TextFormField(
+                                  controller: controller.newPasswordController,
                                   obscureText: true,
                                   decoration: InputDecoration(
-                                    labelText: "Enter New Password",
-                                    labelStyle:
-                                        TextStyle(color: Color(0xFFB8B8B8)),
+                                    labelText: 'Enter New Password',
+                                    border: InputBorder.none,
                                     filled: true,
-                                    fillColor: Colors.white,
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                      borderSide: BorderSide.none,
-                                    ),
-                                    contentPadding: EdgeInsets.symmetric(
-                                        vertical: 16, horizontal: 15),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.never,
+                                    fillColor: Colors.grey[100],
                                   ),
-                                  style: TextStyle(color: AppColor.darkskyblue),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'New password is required';
+                                    }
+                                    if (value ==
+                                        controller.oldPasswordController.text) {
+                                      return 'New password cannot be the same as old password';
+                                    }
+                                    if (value.length < 8) {
+                                      return 'Password must be at least 8 characters long';
+                                    }
+                                    return null;
+                                  },
                                 ),
-                                SizedBox(height: 20),
-
-                                // Confirm New Password Field
+                                const SizedBox(height: 25),
                                 TextFormField(
+                                  controller:
+                                      controller.confirmPasswordController,
                                   obscureText: true,
                                   decoration: InputDecoration(
-                                    labelText: "Confirm New Password",
-                                    labelStyle:
-                                        TextStyle(color: Color(0xFFB8B8B8)),
+                                    labelText: 'Confirm New Password',
+                                    border: InputBorder.none,
                                     filled: true,
-                                    fillColor: Colors.white,
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                      borderSide: BorderSide.none,
-                                    ),
-                                    contentPadding: EdgeInsets.symmetric(
-                                        vertical: 16, horizontal: 15),
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.never,
+                                    fillColor: Colors.grey[100],
                                   ),
-                                  style: TextStyle(color: AppColor.darkskyblue),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Confirm password is required';
+                                    }
+                                    if (value !=
+                                        controller.newPasswordController.text) {
+                                      return 'Passwords do not match';
+                                    }
+                                    return null;
+                                  },
                                 ),
-                                SizedBox(height: 30),
-
-                                // Update Button
-                                SizedBox(
-                                  width: double.infinity,
-                                  height: 50,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: AppColor.yellowish,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(8),
+                                const SizedBox(height: 25),
+                                Obx(() {
+                                  return SizedBox(
+                                    height: 50,
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.9,
+                                    child: ElevatedButton(
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            WidgetStateProperty.all<Color>(
+                                                Colors.blue),
                                       ),
+                                      onPressed: () async {
+                                        if (controller.isPLoading.value)
+                                          return; // Prevent multiple taps
+                                        if (controller.formKey.currentState!
+                                            .validate()) {
+                                         // Call the password change API
+                                          controller.changePassword(
+                                            controller
+                                                .oldPasswordController.text,
+                                            controller
+                                                .newPasswordController.text,
+                                          );
+                                        }
+                                      },
+                                      child: controller.isPLoading.value
+                                          ? const CircularProgressIndicator(
+                                              color: Colors.white)
+                                          : const Text(
+                                              "Update",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
                                     ),
-                                    onPressed: () {
-                                      Get.toNamed('/account');
-                                    },
-                                    child: Text(
-                                      "Update",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                                  );
+                                }),
                               ],
                             ),
                           );
