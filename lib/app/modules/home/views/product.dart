@@ -1,83 +1,12 @@
+import 'package:blackford/app/modules/home/controllers/home_controller.dart';
 import 'package:blackford/utilities/colors.dart';
 import 'package:blackford/widgets/product_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_wp_woocommerce/models/products.dart';
 import 'package:get/get.dart';
 
-class Product extends StatelessWidget {
-  Product({super.key});
-
-  final List<Map<String, dynamic>> products = [
-    {
-      "name": "The Great Gatsby",
-      "author": "F. Scott Fitzgerald",
-      "price": "10.99",
-      "image": "assets/images/Book-1.png",
-      "tags": ["Design", "User Interfare"]
-    },
-    {
-      "name": "Becoming",
-      "author": "Michelle Obama",
-      "price": "19.99",
-      "image": "assets/images/Book-3.png",
-      "tags": ["Design", "User Interfare"]
-    },
-    {
-      "name": "Atomic Habits",
-      "author": "James Clear",
-      "price": "15.99",
-      "image": "assets/images/Book-2.png",
-      "tags": ["Design", "User Interfare"]
-    },
-    {
-      "name": "Sapiens: A Brief History of Humankind",
-      "author": "Yuval Noah Harari",
-      "price": "18.50",
-      "image": "assets/images/Book-1.png",
-      "tags": ["Design", "User Interfare"]
-    },
-    {
-      "name": "Educated",
-      "author": "Tara Westover",
-      "price": "14.99",
-      "image": "assets/images/Book-3.png",
-      "tags": ["Design", "User Interfare"]
-    },
-    {
-      "name": "The Power of Now",
-      "author": "Eckhart Tolle",
-      "price": "12.99",
-      "image": "assets/images/Book-2.png",
-      "tags": ["Design", "User Interfare"]
-    },
-    {
-      "name": "The Catcher in the Rye",
-      "author": "J.D. Salinger",
-      "price": "9.99",
-      "image": "assets/images/Book-1.png",
-      "tags": ["Design", "User Interfare"]
-    },
-    {
-      "name": "1984",
-      "author": "George Orwell",
-      "price": "13.99",
-      "image": "assets/images/Book-3.png",
-      "tags": ["Design", "User Interfare"]
-    },
-    {
-      "name": "The Alchemist",
-      "author": "Paulo Coelho",
-      "price": "11.99",
-      "image": "assets/images/Book-1.png",
-      "tags": ["Design", "User Interfare"]
-    },
-    {
-      "name": "To Kill a Mockingbird",
-      "author": "Harper Lee",
-      "price": "12.50",
-      "image": "assets/images/Book-2.png",
-      "tags": ["Design", "User Interfare"]
-    },
-  ];
+class Product extends GetView<HomeController> {
+  Product({super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -85,30 +14,46 @@ class Product extends StatelessWidget {
       backgroundColor: AppColor.primarycolor,
       body: Container(
         width: Get.width,
-        child: ListView.builder(
-          padding: EdgeInsets.only(top: 20),
-          shrinkWrap: true,
-          itemCount: products.length,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: GestureDetector(
-              onTap: () => Get.toNamed("/single-product"),
-              child: SizedBox(
-                height: 120,
-                child: productCard(
-                  name: products[index]["name"]!,
-                  author: products[index]["author"]!,
-                  price: products[index]["price"]!,
-                  image: products[index]["image"]!,
-                  tags: List<String>.from(products[index]["tags"]),
-                  context: context,
-                  index: index,
+        child: Obx(() {
+          // Ensure the products list is loaded and not empty
+          if (controller.allproducts.isEmpty) {
+            return Center(child: CircularProgressIndicator());
+          }
+          
+          return ListView.builder(
+            padding: EdgeInsets.only(top: 20,),
+            shrinkWrap: true,
+            itemCount: controller.allproducts.length,
+            itemBuilder: (context, index) {
+              final product = controller.allproducts[index];
+
+              // Ensure product has images and handle null/empty
+              String imageUrl = '';
+              if (product.images != null && product.images!.isNotEmpty) {
+                imageUrl = product.images!.first.src ?? '';  // Using the first image URL
+              }
+
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 20),               
+                child: GestureDetector(
+                  onTap: () => Get.toNamed("/single-product"),
+                  child: SizedBox(
+                    height: 120,
+                    child: productCard(
+                      name: product.name ?? "Unknown",  // Handle null values
+                      author: product.name ?? "Unknown",  // Handle null values
+                      price: product.price ?? "0.0",  // Handle null values
+                      image: imageUrl,
+                      tags: product.tags?.map((tag) => tag.name ?? "").toList() ?? [],  // Safely handle null tags
+                      context: context,
+                      index: index,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ),
-        ),
+              );
+            },
+          );
+        }),
       ),
     );
   }

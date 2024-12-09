@@ -30,7 +30,11 @@ class HomeView extends GetView<HomeController> {
           centerTitle: true,
           backgroundColor: AppColor.darkskyblue,
           foregroundColor: AppColor.white,
-          leading: const Icon(Icons.search),
+          leading: GestureDetector(
+            onTap: () async {
+              await controller.getProducts();
+            },
+            child: const Icon(Icons.search)),
           actions: [
             IconButton(
               onPressed: () {
@@ -117,7 +121,7 @@ class HomeView extends GetView<HomeController> {
                           ],
                         ),
                         SizedBox(
-                          height: Get.height,
+                          height: MediaQuery.of(context).size.height * 0.5,
                           child: TabBarView(
                             children: [
                               Product(),

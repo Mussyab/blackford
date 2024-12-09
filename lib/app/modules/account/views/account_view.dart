@@ -9,7 +9,7 @@ class AccountView extends GetView<AccountController> {
 
   @override
   Widget build(BuildContext context) {
-    final dynamic homeController = Get.find<HomeController>().retrievedData;
+    late dynamic homeController = Get.find<HomeController>().retrievedData ?? {};
     return Scaffold(
       backgroundColor: AppColor.primarycolor,
       appBar: AppBar(
@@ -46,7 +46,7 @@ class AccountView extends GetView<AccountController> {
             ),
 
             Text(
-              homeController['username'],
+              homeController != null && homeController['username'] != null ? homeController['username'] : "No username",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -54,7 +54,7 @@ class AccountView extends GetView<AccountController> {
               ),
             ),
             Text(
-              homeController['email'],
+             homeController != null && homeController['email'] != null ? homeController['email'] : "No email",
               style: TextStyle(
                 fontSize: 14,
                 color: AppColor.white,

@@ -200,7 +200,7 @@ class LoginView extends GetView<LoginController> {
                                        WidgetStateProperty.resolveWith<Color>(
                                      (Set<WidgetState> states) {
                                        if (states.contains(WidgetState.disabled)) {
-                                         return const Color.fromARGB(255, 155, 149, 976); // Disabled button color
+                                         return const Color.fromARGB(255, 155, 149, 97); 
                                        }
                                        return AppColor.yellowish; // Enabled button color
                                      },

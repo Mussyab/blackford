@@ -12,6 +12,11 @@ class LoginController extends GetxController {
   final email = TextEditingController().obs;
   final password = TextEditingController().obs;
 
+  void onInit() {
+    super.onInit();
+   
+  }
+
   void togglePasswordVisibility() {
     isPasswordVisible.value = !isPasswordVisible.value;
 }
@@ -83,6 +88,7 @@ class LoginController extends GetxController {
     }
   } 
 }
+
 
 
 }

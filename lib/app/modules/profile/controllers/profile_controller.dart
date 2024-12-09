@@ -42,16 +42,12 @@ class ProfileController extends GetxController {
       final updatedCustomer = await woocommerce.updateCustomer(id: customerData.id!, data: data);
 
       // Handle the response
-      if (updatedCustomer != null) {
-        // Optionally, you can update shared preferences with the updated data
-        await saveDataToSharedPreferences(updatedCustomer);
+      // Optionally, you can update shared preferences with the updated data
+      await saveDataToSharedPreferences(updatedCustomer);
 
-        // Success message
-        Get.snackbar("Success", "Password updated successfully.", backgroundColor: Colors.green);
-      } else {
-        Get.snackbar("Error", "Failed to update password. Please try again.", backgroundColor: Colors.red);
-      }
-    } catch (e) {
+      // Success message
+      Get.snackbar("Success", "Password updated successfully.", backgroundColor: Colors.green);
+        } catch (e) {
       // Handle any errors
       String errorMessage = "An error occurred while updating the password. Please try again later.";
       if (e is Exception) {
@@ -62,6 +58,9 @@ class ProfileController extends GetxController {
       print("Error updating password: $e");
     } finally {
       isPLoading.value = false;
+      oldPasswordController.clear();
+      newPasswordController.clear();
+      confirmPasswordController.clear();
     }
   }
 

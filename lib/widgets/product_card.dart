@@ -20,9 +20,15 @@ Widget productCard({
           child: Container(
             height: 150,
             width: 80,
-            child: Image.asset(
+            child: Image.network(
               image,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
+              errorBuilder: (context, error, stackTrace) {
+                return Image.asset(
+                  "assets/images/Book-3.png",
+                  fit: BoxFit.contain,
+                );
+              },
             ),
           ),
         ),

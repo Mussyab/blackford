@@ -10,6 +10,7 @@ class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     final dynamic homeController = Get.find<HomeController>().retrievedData;
+    final ProfileController profileController = Get.put(ProfileController());
     return Scaffold(
       backgroundColor: AppColor.primarycolor,
       appBar: AppBar(
@@ -106,7 +107,7 @@ class ProfileView extends GetView<ProfileController> {
                     onTap: () {
                       showModalBottomSheet(
                         backgroundColor: AppColor.primarycolor,
-                        context: context,
+                        context: context,                       
                         builder: (context) {
                           return Padding(
                             padding: const EdgeInsets.all(25.0),
@@ -123,13 +124,17 @@ class ProfileView extends GetView<ProfileController> {
                                 ),
                                 SizedBox(height: 20),
                                 TextFormField(
-                                  controller: controller.oldPasswordController,
+                                  controller:
+                                      profileController.oldPasswordController,
                                   obscureText: true,
                                   decoration: InputDecoration(
                                     labelText: 'Enter old Password',
                                     border: InputBorder.none,
+                                    labelStyle: TextStyle(
+                                      color: Color(0xFFB8B8B8),
+                                    ),
                                     filled: true,
-                                    fillColor: Colors.grey[100],
+                                    fillColor: AppColor.white,
                                   ),
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
@@ -140,20 +145,25 @@ class ProfileView extends GetView<ProfileController> {
                                 ),
                                 const SizedBox(height: 25),
                                 TextFormField(
-                                  controller: controller.newPasswordController,
+                                  controller:
+                                      profileController.newPasswordController,
                                   obscureText: true,
                                   decoration: InputDecoration(
                                     labelText: 'Enter New Password',
                                     border: InputBorder.none,
+                                    labelStyle: TextStyle(
+                                      color: Color(0xFFB8B8B8),
+                                    ),
                                     filled: true,
-                                    fillColor: Colors.grey[100],
+                                    fillColor: AppColor.white,
                                   ),
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return 'New password is required';
                                     }
                                     if (value ==
-                                        controller.oldPasswordController.text) {
+                                        profileController
+                                            .oldPasswordController.text) {
                                       return 'New password cannot be the same as old password';
                                     }
                                     if (value.length < 8) {
@@ -164,21 +174,25 @@ class ProfileView extends GetView<ProfileController> {
                                 ),
                                 const SizedBox(height: 25),
                                 TextFormField(
-                                  controller:
-                                      controller.confirmPasswordController,
+                                  controller: profileController
+                                      .confirmPasswordController,
                                   obscureText: true,
                                   decoration: InputDecoration(
                                     labelText: 'Confirm New Password',
                                     border: InputBorder.none,
+                                    labelStyle: TextStyle(
+                                      color: Color(0xFFB8B8B8),
+                                    ),
                                     filled: true,
-                                    fillColor: Colors.grey[100],
+                                    fillColor: AppColor.white,
                                   ),
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return 'Confirm password is required';
                                     }
                                     if (value !=
-                                        controller.newPasswordController.text) {
+                                        profileController
+                                            .newPasswordController.text) {
                                       return 'Passwords do not match';
                                     }
                                     return null;
@@ -194,23 +208,30 @@ class ProfileView extends GetView<ProfileController> {
                                       style: ButtonStyle(
                                         backgroundColor:
                                             WidgetStateProperty.all<Color>(
-                                                Colors.blue),
+                                                AppColor.yellowish),
+                                        shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(6),
+                                          )
+                                        )        
                                       ),
                                       onPressed: () async {
-                                        if (controller.isPLoading.value)
+                                        if (profileController.isPLoading.value)
                                           return; // Prevent multiple taps
-                                        if (controller.formKey.currentState!
+                                        if (profileController
+                                            .formKey.currentState!
                                             .validate()) {
-                                         // Call the password change API
-                                          controller.changePassword(
-                                            controller
+                                          // Call the password change API
+                                          profileController.changePassword(
+                                            profileController
                                                 .oldPasswordController.text,
-                                            controller
+                                            profileController
                                                 .newPasswordController.text,
                                           );
                                         }
                                       },
-                                      child: controller.isPLoading.value
+                                      child: profileController.isPLoading.value
                                           ? const CircularProgressIndicator(
                                               color: Colors.white)
                                           : const Text(
