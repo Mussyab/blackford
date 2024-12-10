@@ -117,7 +117,7 @@ class SingleProductView extends GetView<SingleProductController> {
                                     height: 50,
                                     child: ElevatedButton(
                                       onPressed: () {
-                                        Get.toNamed('/home');
+                                        Get.back();
                                       },
                                       child: Text(
                                         "Continue Shopping",

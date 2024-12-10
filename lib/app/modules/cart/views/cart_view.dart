@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 class CartView extends GetView<CartController> {
   @override
   Widget build(BuildContext context) {
+    int totalprice = 0;
     return Scaffold(
       backgroundColor: AppColor.primarycolor,
       appBar: AppBar(
@@ -30,12 +31,16 @@ class CartView extends GetView<CartController> {
                 itemCount: controller.cartItems.length,
                 itemBuilder: (context, index) {
                   var item = controller.cartItems[index];
+                  // calculate the total price manually from items(quantity will be 1 for every item)
+                  var totalPrice = double.parse(item.lineTotal!) / 100;
+                  print("Total Price: $totalPrice");                 
+                  totalprice += totalPrice.toInt() * controller.cartItems.length;//+
+                  print("Total Price: $totalprice");
                   return Padding(
                     padding: EdgeInsets.only(bottom: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                       
                         SizedBox(width: 5),
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
@@ -75,16 +80,15 @@ class CartView extends GetView<CartController> {
                               ),
                               SizedBox(height: 8),
                               Text(
-                              item.lineTotal != null
-    ? "\$${(double.parse(item.lineTotal!) / 100).toStringAsFixed(2)}"
-    : "Price not available",
+                                item.lineTotal != null
+                                    ? "\$${(double.parse(item.lineTotal!) / 100).toStringAsFixed(2)}"
+                                    : "Price not available",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 15,
                                 ),
                               ),
                               SizedBox(height: 12),
-                             
                             ],
                           ),
                         ),
@@ -95,7 +99,7 @@ class CartView extends GetView<CartController> {
                             size: 20,
                           ),
                           onPressed: () {
-                           controller.removeFromCart(item.key!);
+                            controller.removeFromCart(item.key!);
                           },
                         ),
                       ],
@@ -105,7 +109,6 @@ class CartView extends GetView<CartController> {
               ),
             ),
             SizedBox(height: 10),
-            
             Divider(height: 20, thickness: 1, color: AppColor.white),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -115,7 +118,7 @@ class CartView extends GetView<CartController> {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
                 Text(
-                  "\$${controller.totalPrice.value}",
+                  "\$${totalprice}",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w900,
@@ -153,3 +156,4 @@ class CartView extends GetView<CartController> {
     );
   }
 }
+

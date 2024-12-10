@@ -36,7 +36,7 @@ class Product extends GetView<HomeController> {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 20),               
                 child: GestureDetector(
-                  onTap: () => Get.toNamed("/single-product"),
+                   onTap: () => Get.toNamed("/single-product", arguments: product),
                   child: SizedBox(
                     height: 120,
                     child: productCard(
@@ -44,7 +44,7 @@ class Product extends GetView<HomeController> {
                       author: product.name ?? "Unknown",  // Handle null values
                       price: product.price ?? "0.0",  // Handle null values
                       image: imageUrl,
-                      tags: product.tags?.map((tag) => tag.name ?? "").toList() ?? [],  // Safely handle null tags
+                      tags: product.tags.map((tag) => tag.name ?? "").toList() ?? [],  // Safely handle null tags
                       context: context,
                       index: index,
                     ),
