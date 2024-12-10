@@ -1,23 +1,59 @@
+import 'package:blackford/api_key.dart';
+import 'package:flutter_wp_woocommerce/models/cart.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
-  //TODO: Implement CartController
+  var cartItems = <WooCartItems>[].obs; // Observing cart items
+  var totalPrice = 0.0.obs; // Observing total price
+  var isLoading = false.obs; // For showing loading indicators
 
-  final count = 0.obs;
+
+
   @override
   void onInit() {
+    fetchCartItems();
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  // Fetch cart items
+  Future<void> fetchCartItems() async {
+    try {
+      isLoading.value = true;
+      var cart = await woocommerce.getMyCart(
+      );
+      cartItems.value = cart.items!;
+      // totalPrice.value = cart.totalPrice;
+    } catch (e) {
+      print("Error fetching cart items: $e");
+    } finally {
+      isLoading.value = false;
+    }
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  // Add product to cart
+  Future<void> addToCart(String productId) async {
+    try {
+      isLoading.value = true;
+      await woocommerce.addToMyCart(itemId: productId.toString(), quantity: '1');
+      await fetchCartItems(); // Refresh cart after adding
+    } catch (e) {
+      print("Error adding to cart: $e");
+    } finally {
+      isLoading.value = false;
+    }
   }
 
-  void increment() => count.value++;
+  // Remove item from cart
+  Future<void> removeFromCart(String key) async {
+    try {
+      isLoading.value = true;
+      await woocommerce.deleteMyCartItem(key: key);
+      await fetchCartItems(); // Refresh cart after removal
+    } catch (e) {
+      print("Error removing from cart: $e");
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
 }

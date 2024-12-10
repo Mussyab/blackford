@@ -47,35 +47,6 @@ Future<void> getProducts() async {
     allproducts.value = products;
     print("Fetched Products: ${allproducts.value.toString()}");
 
-    // for (var product in products) {
-    //   print('Product ID: ${product.id}');
-    //   print('Name: ${product.name}');
-    //   print('Price: ${product.price}');
-    //   print('Status: ${product.status}');
-
-      // Display categories
-      // if (product.categories != null && product.categories!.isNotEmpty) {
-      //   print('Categories:');
-      //   for (var category in product.categories!) {
-      //     print('  - ${category.name}');
-      //   }
-      // } else {
-      //   print('No categories available');
-      // }
-
-      // // Display images
-      // if (product.images != null && product.images!.isNotEmpty) {
-      //   print('Images:');
-      //   for (var image in product.images!) {
-      //     print('  - ${image.src}');  // Image URL
-      //   }
-      // } else {
-      //   print('No images available');
-      // }
-
-      // // Display description
-      // print('Description: ${product.description ?? "No description available"}');
-      // print('Short Description: ${product.shortDescription ?? "No short description available"}');
     
   } catch (e) {
     print("Error fetching products: $e");

@@ -1,105 +1,10 @@
+import 'package:blackford/app/modules/cart/controllers/cart_controller.dart';
 import 'package:blackford/utilities/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CartView extends StatefulWidget {
-  CartView({super.key});
-
-  @override
-  _CartViewState createState() => _CartViewState();
-}
-
-class _CartViewState extends State<CartView> {
-  final List<Map<String, dynamic>> cartItems = [
-    {
-      "name": "The Great Gatsby",
-      "author": "F. Scott Fitzgerald",
-      "price": "\$10.99",
-      "image": "assets/images/Book-3.png",
-      "quantity": 1,
-      "selected": true,
-      "tags": ["Design", "User Interface"],
-    },
-    {
-      "name": "Becoming",
-      "author": "Michelle Obama",
-      "price": "\$19.99",
-      "image": "assets/images/Book-1.png",
-      "quantity": 1,
-      "selected": true,
-      "tags": ["Design", "User Interface"],
-    },
-    {
-      "name": "Atomic Habits",
-      "author": "James Clear",
-      "price": "\$15.99",
-      "image": "assets/images/Book-3.png",
-      "quantity": 1,
-      "selected": true,
-      "tags": ["Design", "User Interface"],
-    },
-    {
-      "name": "Atomic Habits",
-      "author": "James Clear",
-      "price": "\$15.99",
-      "image": "assets/images/Book-2.png",
-      "quantity": 1,
-      "selected": true,
-      "tags": ["Design", "User Interface"],
-    },
-    {
-      "name": "Atomic Habits",
-      "author": "James Clear",
-      "price": "\$15.99",
-      "image": "assets/images/Book-1.png",
-      "quantity": 1,
-      "selected": true,
-      "tags": ["Design", "User Interface"],
-    },
-    {
-      "name": "Atomic Habits",
-      "author": "James Clear",
-      "price": "\$15.99",
-      "image": "assets/images/Book-3.png",
-      "quantity": 1,
-      "selected": true,
-      "tags": ["Design", "User Interface"],
-    },
-  ];
-
-  bool selectAll = false;
-
-  void toggleSelectAll() {
-    setState(() {
-      selectAll = !selectAll;
-      for (var item in cartItems) {
-        item['selected'] = selectAll;
-      }
-    });
-  }
-
-  void toggleItemSelection(int index) {
-    setState(() {
-      cartItems[index]['selected'] = !cartItems[index]['selected'];
-      selectAll = cartItems.every((item) => item['selected'] == true);
-    });
-  }
-
-  void incrementQuantity(int index) {
-    setState(() {
-      cartItems[index]['quantity'] += 1;
-    });
-  }
-
-  void decrementQuantity(int index) {
-    setState(() {
-      if (cartItems[index]['quantity'] > 1) {
-        cartItems[index]['quantity'] -= 1;
-      }
-    });
-  }
-
+class CartView extends GetView<CartController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,31 +27,23 @@ class _CartViewState extends State<CartView> {
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: cartItems.length,
+                itemCount: controller.cartItems.length,
                 itemBuilder: (context, index) {
-                  final item = cartItems[index];
+                  var item = controller.cartItems[index];
                   return Padding(
                     padding: EdgeInsets.only(bottom: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Checkbox(
-                          splashRadius: 20,
-                          activeColor: AppColor.white,
-                          checkColor: AppColor.darkskyblue,
-                          value: item['selected'],
-                          onChanged: (val) {
-                            toggleItemSelection(index);
-                          },
-                        ),
+                       
                         SizedBox(width: 5),
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: Container(
                             height: 120,
                             width: 80,
-                            child: Image.asset(
-                              item["image"],
+                            child: Image.network(
+                              item.images?.first.src ?? '',
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -159,7 +56,7 @@ class _CartViewState extends State<CartView> {
                               Container(
                                 width: Get.width * 0.5,
                                 child: Text(
-                                  item["name"],
+                                  item.name ?? '',
                                   style: TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold,
@@ -170,7 +67,7 @@ class _CartViewState extends State<CartView> {
                               ),
                               SizedBox(height: 2),
                               Text(
-                                item["author"],
+                                "author",
                                 style: TextStyle(
                                   color: AppColor.white,
                                   fontSize: 12,
@@ -178,70 +75,14 @@ class _CartViewState extends State<CartView> {
                               ),
                               SizedBox(height: 8),
                               Text(
-                                item["price"],
+                                item.price ?? '',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 15,
                                 ),
                               ),
                               SizedBox(height: 12),
-                              Container(
-                                height: 30,
-                                width: 100,
-                                decoration: BoxDecoration(
-                                  color: AppColor.white,
-                                  borderRadius: BorderRadius.circular(12),
-                                  shape: BoxShape.rectangle,
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () => decrementQuantity(index),
-                                      child: Container(
-                                        height: 20,
-                                        width: 20,
-                                        decoration: BoxDecoration(
-                                          color: Colors.grey[200],
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                        ),
-                                        child: Icon(
-                                          CupertinoIcons.minus,
-                                          color: Colors.grey,
-                                          size: 15,
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      "${item['quantity']}",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () => incrementQuantity(index),
-                                      child: Container(
-                                        height: 20,
-                                        width: 20,
-                                        decoration: BoxDecoration(
-                                          color: AppColor.darkskyblue,
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                        ),
-                                        child: Icon(
-                                          CupertinoIcons.plus,
-                                          color: Colors.white,
-                                          size: 15,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
+                             
                             ],
                           ),
                         ),
@@ -252,9 +93,7 @@ class _CartViewState extends State<CartView> {
                             size: 20,
                           ),
                           onPressed: () {
-                            setState(() {
-                              cartItems.removeAt(index);
-                            });
+                           controller.removeFromCart(item.key!);
                           },
                         ),
                       ],
@@ -264,24 +103,7 @@ class _CartViewState extends State<CartView> {
               ),
             ),
             SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Select All",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                ),
-                Checkbox(
-                  splashRadius: 20,
-                  activeColor: AppColor.white,
-                  checkColor: AppColor.darkskyblue,
-                  value: selectAll,
-                  onChanged: (val) {
-                    toggleSelectAll();
-                  },
-                ),
-              ],
-            ),
+            
             Divider(height: 20, thickness: 1, color: AppColor.white),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -291,7 +113,7 @@ class _CartViewState extends State<CartView> {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
                 Text(
-                  "\$300.00",
+                  "\$${controller.totalPrice.value}",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w900,
@@ -303,7 +125,7 @@ class _CartViewState extends State<CartView> {
             SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                Get.toNamed('/home');
+                Get.toNamed('/checkout');
               },
               child: Text(
                 "Checkout",

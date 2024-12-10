@@ -1,3 +1,4 @@
+import 'package:blackford/app/modules/cart/controllers/cart_controller.dart';
 import 'package:blackford/app/modules/profile/controllers/profile_controller.dart';
 import 'package:get/get.dart';
 
@@ -11,6 +12,9 @@ class HomeBinding extends Bindings {
     );
      Get.lazyPut<ProfileController>(
       () => ProfileController(),
+    );
+     Get.lazyPut<CartController>(
+      () => CartController(),
     );
   }
 }

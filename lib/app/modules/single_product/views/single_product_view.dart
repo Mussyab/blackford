@@ -1,3 +1,4 @@
+import 'package:blackford/app/modules/cart/controllers/cart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_wp_woocommerce/models/products.dart';
 import 'package:get/get.dart';
@@ -142,10 +143,11 @@ class SingleProductView extends GetView<SingleProductController> {
                                     height: 50,
                                     child: ElevatedButton(
                                       onPressed: () {
-                                        Get.toNamed('/cart');
+                                        Get.find<CartController>().addToCart(product!.id.toString());
+                                        // Get.find().CartController.addToCart(product!.id);
                                       },
                                       child: Text(
-                                        "View Cart",
+                                        "Add to Cart",
                                         style: TextStyle(
                                           color: AppColor.darkskyblue,
                                           fontSize: 13,
