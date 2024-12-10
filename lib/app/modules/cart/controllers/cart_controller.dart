@@ -22,7 +22,7 @@ class CartController extends GetxController {
       var cart = await woocommerce.getMyCart(
       );
       cartItems.value = cart.items!;
-      // totalPrice.value = cart.totalPrice;
+      totalPrice.value = double.tryParse(cart.totals!.lineTotal ?? '0') ?? 1.0;
     } catch (e) {
       print("Error fetching cart items: $e");
     } finally {
@@ -35,7 +35,7 @@ class CartController extends GetxController {
     try {
       isLoading.value = true;
       await woocommerce.addToMyCart(itemId: productId.toString(), quantity: '1');
-      await fetchCartItems(); // Refresh cart after adding
+      await fetchCartItems(); 
     } catch (e) {
       print("Error adding to cart: $e");
     } finally {

@@ -75,7 +75,9 @@ class CartView extends GetView<CartController> {
                               ),
                               SizedBox(height: 8),
                               Text(
-                                item.price ?? '',
+                              item.lineTotal != null
+    ? "\$${(double.parse(item.lineTotal!) / 100).toStringAsFixed(2)}"
+    : "Price not available",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 15,
