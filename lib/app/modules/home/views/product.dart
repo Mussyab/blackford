@@ -29,8 +29,8 @@ class Product extends GetView<HomeController> {
 
               // Ensure product has images and handle null/empty
               String imageUrl = '';
-              if (product.images != null && product.images!.isNotEmpty) {
-                imageUrl = product.images!.first.src ?? '';  // Using the first image URL
+              if (product.images.isNotEmpty) {
+                imageUrl = product.images.first.src ?? '';  // Using the first image URL
               }
 
               return Padding(

@@ -126,8 +126,8 @@ class _SearchProductViewstate extends State<SearchProductView> {
                   itemBuilder: (context, index) {
                     final product = filteredProducts[index];
                     String imageUrl = '';
-                    if (product.images != null && product.images!.isNotEmpty) {
-                      imageUrl = product.images!.first.src ?? ''; // Get the first image URL
+                    if (product.images.isNotEmpty) {
+                      imageUrl = product.images.first.src ?? ''; // Get the first image URL
                     }
                     
                     return Padding(
@@ -141,7 +141,7 @@ class _SearchProductViewstate extends State<SearchProductView> {
                             author: product.name ?? "Unknown",  // Handle null
                             price: product.price ?? "0.0",  // Handle null
                             image: imageUrl,
-                            tags: product.tags?.map((tag) => tag.name ?? "").toList() ?? [],  // Safely handle tags
+                            tags: product.tags.map((tag) => tag.name ?? "").toList() ?? [],  // Safely handle tags
                             context: context,
                             index: index,
                           ),

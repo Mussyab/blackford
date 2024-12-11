@@ -209,7 +209,7 @@ class ProfileView extends GetView<ProfileController> {
                                         backgroundColor:
                                             WidgetStateProperty.all<Color>(
                                                 AppColor.yellowish),
-                                        shape: MaterialStateProperty.all<
+                                        shape: WidgetStateProperty.all<
                                             RoundedRectangleBorder>(
                                           RoundedRectangleBorder(
                                             borderRadius: BorderRadius.circular(6),

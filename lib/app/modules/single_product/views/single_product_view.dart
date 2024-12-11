@@ -63,7 +63,7 @@ class SingleProductView extends GetView<SingleProductController> {
                           children: [
                             Align(
                               alignment: Alignment.center,
-                              child: Image.network(product?.images?.first.src ?? '',
+                              child: Image.network(product?.images.first.src ?? '',
                                   height: 250, width: MediaQuery.of(context).size.width * 0.6, fit: BoxFit.contain),
                             ),
                             SizedBox(height: 20),
@@ -98,7 +98,7 @@ class SingleProductView extends GetView<SingleProductController> {
                                     horizontal: 10,
                                   ),
                                   child: Text(
-                                    product?.tags?.first.name ?? "No tags",
+                                    product?.tags.first.name ?? "No tags",
                                     style: TextStyle(
                                       color: Color(0xFFD5AC64),
                                       fontSize: 14,
